@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<div class="page"  style="background:url(/img/fon.jpg);>	
+<div class="page"  style="background:url(../img/fon.jpg);>
 
 <div class="wrap">
 <br/>
@@ -18,7 +18,7 @@
 <table>
 <tr>
 <td>
-<a href="index.php"><img src="/img/Admin-panel.jpg"></a></td>
+<a href="index.php"><img src="../img/Admin-panel.jpg"></a></td>
 <td style="width:800px;">
 <h1 align="center">Адмін-панель інтернет магазину</h1>
 </td></tr></table>
