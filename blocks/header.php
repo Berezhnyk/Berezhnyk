@@ -10,11 +10,11 @@
 <a href="http://stfalcon.github.io/euromaidan/" class="em-ribbon" style="position: absolute; left:0; top:0; width: 90px; height: 90px; background: url('http://stfalcon.github.io/euromaidan/img/em-ribbon.png'); z-index: 2013; border: 0;" title="Розмісти стрічку з символікою України і ЄС на своєму сайті!" target="_blank"></a>
 <div class="page"
      style="
-     background:url(img/fon5.jpg);
-     background-color:#005097;
+     background:url(img/fon_3.png);
+     background-color:#ffffff;
      background-repeat:no-repeat;
      background-attachment:fixed;
-     background-position:center;
+     background-position:100% 100%;
      width:100%;">
 <br />
 <div class="wrap">
