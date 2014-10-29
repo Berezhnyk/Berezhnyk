@@ -1,22 +1,19 @@
-
-
 <?php
-if($_GET['id_cat']){
-$id_cat = $_GET['id_cat'];
-
-$sql_cat ="SELECT name_cat FROM categories WHERE id_cat='$id_cat'";
-$query_cat = mysql_query($sql_cat) or die(mysql_error());
-$row_cat = mysql_fetch_row($query_cat);
-$str = preg_replace('/([^\s]{25})[^\s]+/', '<span title="$0">$1...</span>', $row_cat[0]);
-echo '<h4 style="color:red;">'.$str.'</h4>';
-} else{
-	echo '<h1>Ласкаво просимо в нашому інтернет магазині!!!</h1>';
-}
+	if(isset($_GET['id_cat']) && ($_GET['id_cat'] >=0)){
+		$id_cat = $_GET['id_cat'];
+		$sql_cat ="SELECT name_cat FROM categories WHERE id_cat='$id_cat'";
+		$query_cat = mysql_query($sql_cat) or die(mysql_error());
+		$row_cat = mysql_fetch_row($query_cat);
+		$str = preg_replace('/([^\s]{25})[^\s]+/', '<span title="$0">$1...</span>', $row_cat[0]);
+		echo '<h4 style="color:red;">'.$str.'</h4>';
+	} else{
+		echo '<h1>Ласкаво просимо в нашому інтернет магазині!!!</h1>';
+	}
 echo '<table width="100%" style="padding-top:20px;">';
-if(!$_GET['p']) $_GET['p'] =0;
+if(!isset($_GET['p'])) $_GET['p'] =0;
 $p = $_GET['p'];
 $per_page = 10; // кількість виводимого товару нв сторінці
-if($_GET['id_cat']){
+if(isset($_GET['id_cat'])){
 	$sql_num = "SELECT id_good FROM goods WHERE id_cat='$id_cat'";
 } else {
 	$sql_num = "SELECT id_good FROM goods";
@@ -26,7 +23,7 @@ $query_num = mysql_query($sql_num) or die(mysql_error());
 $rows = mysql_num_rows($query_num);
 // кількість сторінок
 $pages = ceil($rows/$per_page);
-if($_GET['id_cat']){
+if($id_cat >= 0){
 	$sql_good="SELECT * FROM goods WHERE id_cat='$id_cat' ORDER BY id_good ASC LIMIT ".$_GET['p'].",".$per_page;
 
 }else{
