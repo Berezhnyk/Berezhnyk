@@ -7,6 +7,7 @@
 		$str = preg_replace('/([^\s]{25})[^\s]+/', '<span title="$0">$1...</span>', $row_cat[0]);
 		echo '<h4 style="color:red;">'.$str.'</h4>';
 	} else{
+        $id_cat = '';
 		echo '<h1>Ласкаво просимо в нашому інтернет магазині!!!</h1>';
 	}
 echo '<table width="100%" style="padding-top:20px;">';
@@ -19,11 +20,11 @@ if(isset($_GET['id_cat'])){
 	$sql_num = "SELECT id_good FROM goods";
 }
 $query_num = mysql_query($sql_num) or die(mysql_error());
-// Р·Р°РіР°Р»СЊРЅР° Рєв‰ҐР»СЊРєв‰ҐСЃС‚СЊ С‚РѕРІР°СЂСѓ
+
 $rows = mysql_num_rows($query_num);
-// Рєв‰ҐР»СЊРєв‰ҐСЃС‚СЊ СЃС‚РѕСЂв‰ҐРЅРѕРє
+
 $pages = ceil($rows/$per_page);
-if($id_cat >= 0){
+if($id_cat <> ''){
 	$sql_good="SELECT * FROM goods WHERE id_cat='$id_cat' ORDER BY id_good ASC LIMIT ".$_GET['p'].",".$per_page;
 
 }else{
@@ -35,7 +36,7 @@ while($row_good = mysql_fetch_assoc($query_good)){
 	$str = preg_replace('/([^\s]{20})[^\s]+/', '<span title="$0">$1...</span>', $row_good['name_good']);
 	?>	
 		<table>
-		<tr><td style="width:500px;"><a href="goods.php?id_good=<?=$row_good['id_good']?>&id_cat=<?=$id_cat?>&p=<?=$p?>"><?=$str;?></a></td><td><?=$row_good['price_good']?> РіСЂРЅ.</td><td><a class="button blue" style="width:50px; height:25px;" href="add_basket.php?id_good=<?=$row_good['id_good']?>&id_cat=<?=$id_cat ?>&p=<?=$_GET['p']?>">РІ РєРѕСЂР·РёРЅСѓ</a></td></tr>
+		<tr><td style="width:500px;"><a href="goods.php?id_good=<?=$row_good['id_good']?>&id_cat=<?=$id_cat?>&p=<?=$p?>"><?=$str;?></a></td><td><?=$row_good['price_good']?> грн.</td><td><a class="button blue" style="width:50px; height:25px;" href="add_basket.php?id_good=<?=$row_good['id_good']?>&id_cat=<?=$id_cat ?>&p=<?=$_GET['p']?>">В корзину</a></td></tr>
 		
         </table>
      <?php
