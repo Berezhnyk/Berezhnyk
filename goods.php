@@ -4,6 +4,14 @@ $session_id = session_id();
 <?php  include_once 'admin/blocks/bd.php'; ?>
 <?php require 'blocks/sum.php';?>
 <?php include 'blocks/header.php';?>
+<!--
+if (!isset($_COOKIE['view_'.$id])) {
+setcookie("view_".$id, 1, time()+3600);
+mysql_query("UPDATE 2_view SET
+col_prosmot=col_prosmot+1 WHERE id='$id'");
+}
+-->
+
 <p align="left">
 <input class="button gray" type="button" onclick="history.back()" value="<== Назад">
 </p>
@@ -12,7 +20,8 @@ $session_id = session_id();
 <h4>Товарів в <a class="button gray" href="basket.php">корзині</a>: <span style="color:red;"><?= $count?> </span>   на суму: <span style="color:red;"><?= $sum ?></span> грн.</h4>
 </div><!--корзина-->
 <?php include 'blocks/begintable.php';?>
-Про товар
+Про товар<br>
+Переглядів: <!--echo $col_prosmot; -->
 <?php
 if(isset($_GET)){
 $id_good = $_GET['id_good'];
