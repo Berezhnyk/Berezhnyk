@@ -45,10 +45,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="content.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="content.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/blocks/content.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="16" selection-start="913" selection-end="913" vertical-scroll-proportion="0.46666667">
+            <state line="23" column="35" selection-start="863" selection-end="863" vertical-scroll-proportion="-7.1923075">
               <folding>
                 <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#!!top" expanded="true" />
                 <marker date="1414599499521" expanded="false" signature="532:549" placeholder="..." />
@@ -67,11 +67,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="header.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="header.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/blocks/header.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="18" selection-start="868" selection-end="868" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="17" column="6" selection-start="1080" selection-end="1080" vertical-scroll-proportion="0.56666666">
+              <folding>
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -428,13 +431,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blocks/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="18" selection-start="868" selection-end="868" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/basket.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="18" selection-start="567" selection-end="567" vertical-scroll-proportion="0.0">
@@ -471,11 +467,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/blocks/content.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="16" selection-start="913" selection-end="913" vertical-scroll-proportion="0.46666667">
+        <state line="23" column="35" selection-start="863" selection-end="863" vertical-scroll-proportion="-7.1923075">
           <folding>
             <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#!!top" expanded="true" />
             <marker date="1414599499521" expanded="false" signature="532:549" placeholder="..." />
             <marker date="1414599499521" expanded="false" signature="1776:1788" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blocks/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="6" selection-start="1080" selection-end="1080" vertical-scroll-proportion="0.56666666">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
