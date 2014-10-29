@@ -8,7 +8,7 @@
 		echo '<h4 style="color:red;">'.$str.'</h4>';
 	} else{
         $id_cat = '';
-		echo '<h1>Ласкаво просимо в нашому інтернет магазині!!!</h1>';
+		echo '<h1>Ласкаво просимо в нашому інтернет-магазині!!!</h1>';
 	}
     echo '<table width="100%" style="padding-top:20px;">';
     if(!isset($_GET['p'])) $_GET['p'] =0;
