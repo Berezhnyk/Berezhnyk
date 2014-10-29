@@ -2,7 +2,7 @@
 <hr />
 
 <div> <!--footer-->
-<h4 style="text-align:center; " align="center">Автор: Ivan BerezhnyK<br/>
+<h4 style="text-align:center; " align="center">B&V<br/>
 
 <!--bigmir)net TOP 100-->
 <script type="text/javascript" language="javascript"><!--

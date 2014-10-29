@@ -5,6 +5,8 @@
     <ignored path="Berezhnyk.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="c75b8c14-a48d-4df8-8ad3-9a4110d8af74" time="1414598728717" ignored="false" />
+    <file path="/footer.php" changelist="c75b8c14-a48d-4df8-8ad3-9a4110d8af74" time="1414600199318" ignored="false" />
+    <file path="/header.php" changelist="c75b8c14-a48d-4df8-8ad3-9a4110d8af74" time="1414600833391" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,11 +38,32 @@
       <file leaf-file-name="header.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/blocks/header.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="40" selection-start="1043" selection-end="1043" vertical-scroll-proportion="0.53846157">
+            <state line="12" column="28" selection-start="780" selection-end="780" vertical-scroll-proportion="0.30769232">
               <folding>
                 <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#a#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="footer.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/blocks/footer.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="50" selection-start="79" selection-end="79" vertical-scroll-proportion="-2.6153846">
+              <folding>
+                <marker date="1414600206350" expanded="false" signature="271:303" placeholder="..." />
+                <marker date="1414600206350" expanded="false" signature="325:382" placeholder="..." />
+                <marker date="1414600206350" expanded="false" signature="396:546" placeholder="..." />
+                <marker date="1414600206350" expanded="false" signature="566:723" placeholder="..." />
+                <marker date="1414600206350" expanded="false" signature="781:816" placeholder="..." />
+                <marker date="1414600206350" expanded="false" signature="837:851" placeholder="..." />
+                <marker date="1414600206350" expanded="false" signature="883:897" placeholder="..." />
+                <marker date="1414600206350" expanded="false" signature="924:955" placeholder="..." />
+                <marker date="1414600206350" expanded="false" signature="995:1009" placeholder="..." />
+                <marker date="1414600206350" expanded="false" signature="1037:1068" placeholder="..." />
+                <marker date="1414600206350" expanded="false" signature="1113:1265" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -52,13 +75,6 @@
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="header.png" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/img/header.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
           </provider>
         </entry>
       </file>
@@ -130,6 +146,7 @@
         <option value="$PROJECT_DIR$/admin/blocks/bd.php" />
         <option value="$PROJECT_DIR$/style.css" />
         <option value="$PROJECT_DIR$/blocks/content.php" />
+        <option value="$PROJECT_DIR$/blocks/footer.php" />
         <option value="$PROJECT_DIR$/blocks/header.php" />
       </list>
     </option>
@@ -390,13 +407,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/blocks/footer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="50" selection-start="79" selection-end="79" vertical-scroll-proportion="-2.6153846">
+          <folding>
+            <marker date="1414600206350" expanded="false" signature="271:303" placeholder="..." />
+            <marker date="1414600206350" expanded="false" signature="325:382" placeholder="..." />
+            <marker date="1414600206350" expanded="false" signature="396:546" placeholder="..." />
+            <marker date="1414600206350" expanded="false" signature="566:723" placeholder="..." />
+            <marker date="1414600206350" expanded="false" signature="781:816" placeholder="..." />
+            <marker date="1414600206350" expanded="false" signature="837:851" placeholder="..." />
+            <marker date="1414600206350" expanded="false" signature="883:897" placeholder="..." />
+            <marker date="1414600206350" expanded="false" signature="924:955" placeholder="..." />
+            <marker date="1414600206350" expanded="false" signature="995:1009" placeholder="..." />
+            <marker date="1414600206350" expanded="false" signature="1037:1068" placeholder="..." />
+            <marker date="1414600206350" expanded="false" signature="1113:1265" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/blocks/header.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="40" selection-start="1043" selection-end="1043" vertical-scroll-proportion="0.53846157">
+        <state line="12" column="28" selection-start="780" selection-end="780" vertical-scroll-proportion="0.30769232">
           <folding>
             <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
