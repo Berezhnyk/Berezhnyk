@@ -6,16 +6,16 @@
 <link rel="stylesheet" href="admin/style.css">
 </head>
 
-<body style="margin-top:-20px; margin-left:0; font-family:'Comic Sans MS', cursive; ">
+<body link="white" vlink="white" alink="white" style="margin-top:-20px; margin-left:0; font-family:'Comic Sans MS', cursive; ">
 <a href="http://stfalcon.github.io/euromaidan/" class="em-ribbon" style="position: absolute; left:0; top:0; width: 90px; height: 90px; background: url('http://stfalcon.github.io/euromaidan/img/em-ribbon.png'); z-index: 2013; border: 0;" title="Розмісти стрічку з символікою України і ЄС на своєму сайті!" target="_blank"></a>
 <div class="page"
      style="
-     background:url(img/fon_3.png);
-     background-color:#ffffff;
+     background:url(img/fon.png);
+     background-color:#2a3246;
      background-repeat:no-repeat;
      background-attachment:fixed;
-     background-position:100% 100%;
-     width:100%;">
+     background-position:0% 50%;
+     ">
 <br />
 <div class="wrap">
 <div class="mypage">
