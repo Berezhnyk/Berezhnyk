@@ -8,7 +8,6 @@
 		echo '<h4 style="color:red;">'.$str.'</h4>';
 	} else{
         $id_cat = '';
-		echo '<h1>Ласкаво просимо в нашому інтернет-магазині!!!</h1>';
 	}
 echo ' <div class="mypage" style="width: 100%; padding: 10px;">';
     echo '<table width="100%" style="padding-top:20px;">';
