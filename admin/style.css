@@ -42,13 +42,14 @@ html, body {
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 15px;
-	border: 1px solid #B8AE9C;
+	border: 1px solid #5bb6ff;
 	padding: 15px;
-	background-color: #EFE6FF;
+	background-color: #2a3246;
 	color: #595241;
 	font-weight: bold;
 	border-radius: .5em;
 	-moz-border-radius: .5em;
+    opacity: 0.95;
   
   }
   

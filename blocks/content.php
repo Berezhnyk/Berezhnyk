@@ -8,9 +8,10 @@
 		echo '<h4 style="color:red;">'.$str.'</h4>';
 	} else{
         $id_cat = '';
-		echo '<h1>Ласкаво просимо в нашому інтернет-магазині!!!</h1>';
 	}
+echo ' <div class="mypage" style="width: 100%; padding: 10px;">';
     echo '<table width="100%" style="padding-top:20px;">';
+
     if(!isset($_GET['p'])) $_GET['p'] =0;
     $p = $_GET['p'];
     $per_page = 10;
@@ -33,15 +34,13 @@
     $query_good = mysql_query($sql_good) or die(mysql_error());
 
     while($row_good = mysql_fetch_assoc($query_good)){
+
         $str = preg_replace('/([^\s]{20})[^\s]+/', '<span title="$0">$1...</span>', $row_good['name_good']);
-?>
-        <table>
-        <tr><td style="width:500px;"><a href="goods.php?id_good=<?=$row_good['id_good']?>&id_cat=<?=$id_cat?>&p=<?=$p?>"><?=$str;?></a></td><td><?=$row_good['price_good']?> грн.</td><td><a class="button blue" style="width:50px; height:25px;" href="add_basket.php?id_good=<?=$row_good['id_good']?>&id_cat=<?=$id_cat ?>&p=<?=$_GET['p']?>">В корзину</a></td></tr>
-        </table>
-         <?php
+     echo "<tr><td class='mypage' style='width:500px;padding: 5px;'><a   href='goods.php?id_good=".$row_good['id_good']."&id_cat=".$id_cat."&p=".$p."'>".$str."</a></td><td class='mypage' style='width:5%;'>".$row_good['price_good']." грн.</td><td class='mypage' style='width:50px;'><a class='button blue' style='width:50px; height:25px;' href='add_basket.php?id_good=".$row_good['id_good']."&id_cat=".$id_cat."&p=".$_GET['p']."'>В корзину</a></td></tr>";
 
     }
     echo '<table><tr><td style="width:500px;">&nbsp;</td></tr></table></table>';
+echo "</div>";
     for($i=0;$i<$pages;$i++){
         if ($i*$per_page==$p){
             echo '<a class="button white" href="?id_cat='.$id_cat.'&p='.($i*$per_page).'">'.($i+1).'</a>';

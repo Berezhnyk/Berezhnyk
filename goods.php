@@ -29,7 +29,15 @@ $p = $_GET['p'];
 $sql_good ="SELECT * FROM goods WHERE id_good='$id_good' ORDER BY id_good ASC";
 $query_good = mysql_query($sql_good) or die(mysql_error());
 $row_good = mysql_fetch_row($query_good);
+
+
 echo "Переглядів: ".$row_good[5];
+
+
+
+  /*  $sql_basket = "SELECT * FROM goods, basket WHERE customer='$session_id' AND goods.id_good = basket.id_good";
+    $query_basket = mysql_query($sql_basket) or die(mysql_error());
+    if (mysql_num_rows($query_basket)>0) { echo "Є";}else{echo "Нема";};*/
 $str = preg_replace('/([^\s]{20})[^\s]+/', '<span title="$0">$1...</span>', $row_good[2]);
 echo '<h4 style="color:red;" align="center">'.$str.'</h4>';
 $str = preg_replace('/([^\s]{20})[^\s]+/', '<span title="$0">$1...</span>', $row_good[3]);

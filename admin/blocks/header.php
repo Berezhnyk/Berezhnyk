@@ -18,7 +18,7 @@
 <table>
 <tr>
 <td>
-<a href="index.php"><img src="../img/Admin-panel.jpg"></a></td>
+<a href="index.php"><img src="../img/Admin-panel.png"></a></td>
 <td style="width:800px;">
 <h1 align="center">Адмін-панель інтернет магазину</h1>
 </td></tr></table>
