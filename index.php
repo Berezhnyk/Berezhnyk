@@ -8,6 +8,7 @@ $session_id = session_id();
 <div> <!--корзина-->
 <h4>Товарів в <a class="button gray" href="basket.php">корзині</a>: <span style="color:red;"><?= $count?> </span>   на суму: <span style="color:red;"><?= $sum ?></span> грн.</h4>
 </div><!--корзина-->
+<hr>
 <?php include 'blocks/begintable.php';?>
 <?php
 include_once 'blocks/menu.php';

@@ -5,7 +5,7 @@
 		$query_cat = mysql_query($sql_cat) or die(mysql_error());
 		$row_cat = mysql_fetch_row($query_cat);
 		$str = preg_replace('/([^\s]{25})[^\s]+/', '<span title="$0">$1...</span>', $row_cat[0]);
-		echo '<h4 style="color:red;">'.$str.'</h4>';
+		echo '<h3 style="color:green;">'.$str.'</h4>';
 	} else{
         $id_cat = '';
 	}
