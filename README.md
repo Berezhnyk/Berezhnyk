@@ -1,8 +1,21 @@
-### Hey 👋, I'm Ivan Berezhnyk
-I am a Software Engineer with about 7 years of experience. Focused mostly with the following technologies:
+
+<div id="header" align="center">
+  <img src="https://media.giphy.com/media/M9gbBd9nbDrOTu1Mqx/giphy.gif" width="100"/>
+</div>
+
+
+Hey there 👋 I am a Software Engineer with about 7 years of experience. Focused mostly with the following technologies:
 - .Net (C#, AspNet.Core)
 - Web (HTML, TypeScript, SCSS, Angular)
 - Other (Python, GoLang)
 
 ## Stats
 ![berezhnyk's github stats](https://github-readme-stats.vercel.app/api?username=berezhnyk&show_icons=true&theme=dracula)
+
+<img src="https://komarev.com/ghpvc/?username=berezhnyk&style=flat-square&color=blue" alt=""/>
+
+<div id="badges">
+  <a href="https://www.linkedin.com/in/berezhnyk/">
+    <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
+  </a>
+</div>
