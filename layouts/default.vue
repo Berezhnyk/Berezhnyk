@@ -17,7 +17,7 @@ useHead({
     ],
   link: [
     {
-      rel: 'icon', type: 'image/png', href: '../images/icon.png',
+      rel: 'icon', type: 'image/jpeg', href: '../images/icon.jpeg',
     },
     {
       rel: 'preconnect',
