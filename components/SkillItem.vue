@@ -8,7 +8,7 @@
     </div>
 
     <div class="skill-progress-bg">
-      <div class="skill-progress-fill" :style="{width: `${this.progress}%`}"/>
+      <div class="skill-progress-fill" :style="{width: `${progress}%`}"/>
     </div>
   </li>
 </template>
