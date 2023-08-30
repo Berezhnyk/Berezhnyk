@@ -3,44 +3,34 @@ import { defineEventHandler } from 'h3'
 export default defineEventHandler(() => {
   return [
     {
-      id: 1,
-      title: 'React',
-      description: {
-        en: 'I build modern and advanced websites and applications with React or Expo by React Native.',
-        id_ID: 'Saya membuat situs web dan aplikasi modern menggunakan React atau Expo dari React Native.',
-      },
-      icon: 'devicon:react',
-      image: null,
-    },
-    {
-      id: 2,
+      id: 0,
       title: 'Vue',
       description: {
-        en: 'I use Vue, a modern JavaScript and Typescript framework, while making dynamic and static websites and applications.',
-        id_ID: 'Terkadang saya juga menggunakan Vue, framework JavaScript dan Typescript sumber terbuka modern, ketika membuat website maupun aplikasi.',
+        en: 'I use Vue, a progressive JavaScript framework, to create interactive and dynamic web interfaces.',
+        uk_UA: 'Я використовую Vue, прогресивний JavaScript-фреймворк, щоб створювати інтерактивні та динамічні веб-інтерфейси.',
       },
       icon: 'devicon:vuejs',
       image: null,
     },
     {
-      id: 3,
-      title: 'Kotlin',
+      id: 1,
+      title: '.Net Core',
       description: {
-        en: 'For an app, I also use Kotlin.',
-        id_ID: 'Untuk membuat aplikasi, saya juga menggunakan Kotlin.',
+        en: 'I use .Net Core, an open-source framework by Microsoft, for crafting modern, cross-platform applications predominantly with C#.',
+        uk_UA: 'Я використовую .Net Core, відкритий фреймворк від Microsoft, для створення сучасних, кросплатформених додатків, переважно на C#.',
       },
-      icon: 'devicon:kotlin',
+      icon: 'devicon:dotnetcore',
       image: null,
     },
     {
-      id: 4,
-      title: 'Python',
+      id: 2,
+      title: 'Azure',
       description: {
-        en: 'In Cybersecurity, I use Python, SQL, Java/JavaScript, C++, etc. But Python is the language I use more often.',
-        id_ID: 'Dalam bidang Keamanan Siber, saya menggunakan Python, SQL, Java/JavaScript, C++, dll. Tapi Python adalah bahasa yang lebih sering saya gunakan.',
+        en: 'I utilyze Azure, Microsoft\'s cloud computing service, to deploy, manage, and scale applications on a global scale.',
+        uk_UA: 'Я використовую Azure, хмарний обчислювальний сервіс від Microsoft, щоб розгортати, управляти та масштабувати додатки на глобальному рівні.',
       },
-      icon: 'devicon:python',
+      icon: 'devicon:azure',
       image: null,
-    },
+    }
   ]
 })

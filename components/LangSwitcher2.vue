@@ -12,7 +12,7 @@ onMounted(() => {
 function changeLang() {
   if (locale.value === 'en') {
     cookieLocale.setLocale('en')
-    locale.value = 'id_ID'
+    locale.value = 'uk_UA'
   }
   else {
     cookieLocale.setLocale('en')

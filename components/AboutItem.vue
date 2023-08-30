@@ -18,7 +18,7 @@ const { locale } = useI18n({ useScope: 'global' })
 
     <div class="about-content-box">
       <p class="about-item-text">
-        {{ locale === 'en' ? about.description?.en : about.description?.id_ID }}
+        {{ locale === 'en' ? about.description?.en : about.description?.uk_UA }}
       </p>
     </div>
   </li>

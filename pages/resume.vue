@@ -16,27 +16,50 @@ useHead({
       <ol class="timeline-list">
         <li class="timeline-item">
           <h4 class="h4 timeline-item-title">
-            Company
+            GlobalDev
           </h4>
-          <span>From — Until</span>
+          <span>2022 — now</span>
           <p class="timeline-item-desc">
-            Location
+            Remote
           </p>
           <p class="timeline-text">
-            Position
+            Senior Software Engineer
           </p>
         </li>
-        
         <li class="timeline-item">
           <h4 class="h4 timeline-item-title">
-            Company
+            Valid-X
           </h4>
-          <span>From — Until</span>
+          <span>2020 — 2022</span>
           <p class="timeline-item-desc">
-            Location
+            Remote
           </p>
           <p class="timeline-text">
-            Position
+            Senior Software Engineer
+          </p>
+        </li>
+        <li class="timeline-item">
+          <h4 class="h4 timeline-item-title">
+            SoftServe
+          </h4>
+          <span>2018 — 2020</span>
+          <p class="timeline-item-desc">
+            Lviv
+          </p>
+          <p class="timeline-text">
+            Senior Software Engineer
+          </p>
+        </li>
+        <li class="timeline-item">
+          <h4 class="h4 timeline-item-title">
+            Magnis
+          </h4>
+          <span>2015 — 2018</span>
+          <p class="timeline-item-desc">
+            Ternopil
+          </p>
+          <p class="timeline-text">
+            Software Engineer
           </p>
         </li>
       </ol>
@@ -44,19 +67,12 @@ useHead({
 
     <section class="skill">
       <ul class="skills-list content-card">
-        <li class="skills-item">
-          <div class="title-wrapper">
-            <h5 class="h5">
-              Your Skill
-            </h5>
-            <data value="90">90%</data>
-          </div>
-
-          <div class="skill-progress-bg">
-            <div class="skill-progress-fill" style="width: 90%;" />
-          </div>
-        </li>
-
+        <SkillItem title="C#" progress="90" />
+        <SkillItem title="HTML5" progress="90" />
+        <SkillItem title="JavaScript/TypeScript" progress="80" />
+        <SkillItem title="Angular" progress="75" />
+        <SkillItem title="Vue" progress="65" />
+        <SkillItem title="Azure" progress="40" />
       </ul>
     </section>
   </article>

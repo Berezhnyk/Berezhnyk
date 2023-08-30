@@ -7,7 +7,7 @@ export default defineEventHandler(() => {
       title: 'Name',
       content: {
         en: 'English.',
-        id_ID: 'Indonesia.',
+        uk_UA: 'Ukraine',
       },
       image: '/images/.png',
     },
