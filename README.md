@@ -4,9 +4,9 @@
 </div>
 
 
-Hey there 👋 I am a Software Engineer with about 7 years of experience. Focused mostly with the following technologies:
-- .Net (C#, AspNet.Core)
-- Web (HTML, TypeScript, SCSS, Angular)
+Hey there 👋 I am a Software Engineer with about 8+ years of experience. Focused mainly on the following technologies:
+- .Net Core
+- Web (Vue, Angular, HTML, TypeScript, SCSS, Tailwind)
 - Other (Python, GoLang)
 
 ## Stats
