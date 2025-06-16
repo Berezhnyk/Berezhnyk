@@ -1,0 +1,29 @@
+{
+    "hello": "Ahoj",
+    "goodbye": "Na shledanou",
+    "pageTitles": {
+        "about": "O mně",
+        "resume": "Životopis",
+        "portfolio": "Portfolio",
+        "blog": "Blog",
+        "github": "GitHub"
+    },
+    "contact": {
+        "github": "GitHub",
+        "linkedin": "LinkedIn",
+        "location": "Umístění"
+    },
+    "sections": {
+        "experience": "Zkušenosti",
+        "education": "Vzdělání",
+        "skills": "Dovednosti",
+        "services": "Služby",
+        "testimonials": "Reference"
+    },
+    "common": {
+        "remote": "Na dálku",
+        "present": "Současnost",
+        "company": "Společnost",
+        "czechia": "Česká republika"
+    }
+}

@@ -42,7 +42,7 @@ function toggleMenu() {
 
           <div class="contact-info">
             <p class="contact-title">
-              Github
+              {{ $t('contact.github') }}
             </p>
 
             <a href="https://github.com/berezhnyk" class="contact-link" target="_blank">berezhnyk</a>
@@ -56,7 +56,7 @@ function toggleMenu() {
 
           <div class="contact-info">
             <p class="contact-title">
-              Linkedin
+              {{ $t('contact.linkedin') }}
             </p>
 
             <a href="https://linkedin.com/in/berezhnyk/" class="contact-link" target="_blank">Ivan Berezhnyk</a>
@@ -70,10 +70,10 @@ function toggleMenu() {
 
           <div class="contact-info">
             <p class="contact-title">
-              Location
+              {{ $t('contact.location') }}
             </p>
 
-            <address>Ukraine</address>
+            <address>{{ $t('common.czechia') }}</address>
           </div>
         </li>
       </ul>

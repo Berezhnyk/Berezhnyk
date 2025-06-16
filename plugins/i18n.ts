@@ -1,13 +1,6 @@
-import { createI18n } from 'vue-i18n'
-import { useLocaleStore } from '../composables/locale'
+// This plugin is no longer needed since we're using @intlify/nuxt3 module
+// The module handles i18n configuration automatically
 
 export default defineNuxtPlugin(() => {
-  createI18n({
-    legacy: false,
-    inheritLocale: false,
-    globalInjection: true,
-    localeDir: 'locales',
-    fallbackLocale: useLocaleStore().getLocale || 'id',
-    locale: useLocaleStore().getLocale || 'id',
-  })
+  // Plugin functionality is handled by @intlify/nuxt3 module
 })

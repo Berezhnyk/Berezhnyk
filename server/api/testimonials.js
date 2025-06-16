@@ -8,6 +8,7 @@ export default defineEventHandler(() => {
       content: {
         en: 'English.',
         uk_UA: 'Ukraine',
+        cz_CZ: 'Czech',
       },
       image: '/images/.png',
     },

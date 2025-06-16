@@ -7,5 +7,23 @@
         "portfolio": "Portfolio",
         "blog": "Blog",
         "github": "Github"
+    },
+    "contact": {
+        "github": "Github",
+        "linkedin": "LinkedIn",
+        "location": "Location"
+    },
+    "sections": {
+        "experience": "Experience",
+        "education": "Education",
+        "skills": "Skills",
+        "services": "Services",
+        "testimonials": "Testimonials"
+    },
+    "common": {
+        "remote": "Remote",
+        "present": "Present",
+        "company": "Company",
+        "czechia": "Czechia"
     }
 }

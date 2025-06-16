@@ -6,9 +6,16 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@intlify/nuxt3',
   ],
+  intlify: {
+    localeDir: 'locales',
+    vueI18n: {
+      locale: 'en',
+      fallbackLocale: 'en',
+      availableLocales: ['en', 'uk_UA', 'cz_CZ'],
+    },
+  },
   experimental: {
     reactivityTransform: true,
-    viteNode: false,
   },
   plugins: [{ src: '~/plugins/vercel.ts', mode: 'client' }
   ],

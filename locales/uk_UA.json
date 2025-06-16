@@ -1,0 +1,29 @@
+{
+    "hello": "Привіт",
+    "goodbye": "До побачення",
+    "pageTitles": {
+        "about": "Про мене",
+        "resume": "Резюме",
+        "portfolio": "Портфоліо",
+        "blog": "Блог",
+        "github": "GitHub"
+    },
+    "contact": {
+        "github": "GitHub",
+        "linkedin": "LinkedIn",
+        "location": "Місцезнаходження"
+    },
+    "sections": {
+        "experience": "Досвід",
+        "education": "Освіта",
+        "skills": "Навички",
+        "services": "Послуги",
+        "testimonials": "Відгуки"
+    },
+    "common": {
+        "remote": "Віддалено",
+        "present": "Теперішній час",
+        "company": "Компанія",
+        "czechia": "Чехія"
+    }
+}

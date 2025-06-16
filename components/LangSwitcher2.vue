@@ -5,19 +5,20 @@ const { locale } = useI18n({ useScope: 'global' })
 
 const cookieLocale = useLocaleStore()
 
+// Define available locales
+const availableLocales = ['en', 'uk_UA', 'cz_CZ']
+
 onMounted(() => {
   useLocaleStore()
 })
 
 function changeLang() {
-  if (locale.value === 'en') {
-    cookieLocale.setLocale('en')
-    locale.value = 'uk_UA'
-  }
-  else {
-    cookieLocale.setLocale('en')
-    locale.value = 'en'
-  }
+  const currentIndex = availableLocales.indexOf(locale.value)
+  const nextIndex = (currentIndex + 1) % availableLocales.length
+  const nextLocale = availableLocales[nextIndex]
+  
+  cookieLocale.setLocale(nextLocale)
+  locale.value = nextLocale
 }
 </script>
 
