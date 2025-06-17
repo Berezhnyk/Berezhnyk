@@ -13,37 +13,14 @@ useHead({
       { charset: 'utf-8' },
       { name: 'description', content: 'Personal site about Ivan Berezhnyk' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { name: 'og:image', content: 'https://v2.amp-cdn.net/images/480468a77ad0a1a6b1b2e773d9371249e13e3ca2aff757' }
+      { name: 'og:image', content: 'https://avatars.githubusercontent.com/u/6099167?s=400&u=4a8d3ab9b1b207b8c2c2b812a87facbb7dee87e4&v=4' }
     ],
   link: [
     {
       rel: 'icon', type: 'image/jpeg', href: '../images/icon.jpeg',
     },
-    {
-      rel: 'preconnect',
-      href: 'https://fonts.googleapis.com',
-    },
-    {
-      rel: 'preconnect',
-      href: 'https://fonts.gstatic.com',
-    },
-    {
-      rel: 'stylesheet',
-      href: 'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap',
-      crossorigin: '',
-    },
   ],
   script: [
-    {
-      src: 'https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js',
-      body: false,
-      type: 'module',
-    },
-    {
-      src: 'https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js',
-      body: false,
-      nomodule: true,
-    },
   ],
 })
 </script>

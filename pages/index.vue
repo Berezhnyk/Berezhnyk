@@ -66,7 +66,7 @@ const { data: about } = await useFetch('/api/about')
 
       <section class="testimonials-modal">
         <button class="modal-close-btn" @click="closeTestimonaial">
-          <ion-icon name="close-outline" />
+          <Icon name="close-outline" :size="20" />
         </button>
 
         <div class="flex gap-5 mb-5 justify-start items-center">

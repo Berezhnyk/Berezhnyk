@@ -27,7 +27,7 @@ function toggleMenu() {
       <button class="info_more-btn" @click="isOpen = !isOpen">
         <span>Show Contacts</span>
 
-        <ion-icon name="chevron-down" />
+        <Icon name="chevron-down" :size="16" />
       </button>
     </div>
 
@@ -37,7 +37,7 @@ function toggleMenu() {
       <ul class="contacts-list">
         <li class="contact-item">
           <div class="icon-box">
-            <ion-icon name="logo-github" />
+            <Icon name="logo-github" :size="18" />
           </div>
 
           <div class="contact-info">
@@ -51,7 +51,7 @@ function toggleMenu() {
 
         <li class="contact-item">
           <div class="icon-box">
-            <ion-icon name="logo-linkedin" />
+            <Icon name="logo-linkedin" :size="18" />
           </div>
 
           <div class="contact-info">
@@ -65,7 +65,7 @@ function toggleMenu() {
 
         <li class="contact-item">
           <div class="icon-box">
-            <ion-icon name="location-outline" />
+            <Icon name="location-outline" :size="18" />
           </div>
 
           <div class="contact-info">
@@ -83,7 +83,7 @@ function toggleMenu() {
       <ul class="social-list">
         <li class="social-item">
           <NuxtLink to="mailto:ivan@berezhnyk.net" class="social-link" target="_blank">
-            <ion-icon name="mail-outline" />
+            <Icon name="mail-outline" :size="18" />
           </NuxtLink>
         </li>
         <LangSwitcher2 />

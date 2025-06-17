@@ -1,39 +1,27 @@
 <script setup>
-import Dropdown from 'primevue/dropdown'
 import { useLocaleStore } from '../composables/locale'
+import { useI18n } from 'vue-i18n'
 
 const cookieLocale = useLocaleStore()
+const { locale, availableLocales } = useI18n({ useScope: 'global' })
 
-onMounted(() => {
-  const elements = document.getElementsByClassName('p-dropdown-trigger')
-  while (elements.length > 0)
-    elements[0].parentNode.removeChild(elements[0])
-  useLocaleStore()
-})
-
-function changeLocation(ev) {
-  cookieLocale.setLocale(ev.value)
-  localStorage.setItem('locale', ev.value)
+function changeLocation(event) {
+  const selectedLocale = event.target.value
+  locale.value = selectedLocale
+  cookieLocale.setLocale(selectedLocale)
+  localStorage.setItem('locale', selectedLocale)
 }
 </script>
 
 <template>
-  <Dropdown v-model="$i18n.locale" class="bg-gray-400 text-gray-800 dark:bg-gray-800 dark:text-gray-400" input-class="border-0" :options="$i18n.availableLocales" @change="changeLocation($event)">
-    <template #value="slotProps">
-      <div>
-        <img :alt="slotProps.value" :src="`/flags/${slotProps.value}.png`" class="h-6">
-      </div>
-    </template>
-    <template #option="slotProps">
-      <div>
-        <img :alt="slotProps.option" :src="`/flags/${slotProps.option}.png`" class="h-6">
-      </div>
-    </template>
-  </Dropdown>
+  <select 
+    :value="locale" 
+    @change="changeLocation"
+    class="bg-gray-400 text-gray-800 dark:bg-gray-800 dark:text-gray-400 border-0 rounded px-2 py-1"
+  >
+    <option v-for="availableLocale in availableLocales" :key="availableLocale" :value="availableLocale">
+      <img :src="`/flags/${availableLocale}.png`" :alt="availableLocale" class="inline h-4 w-4 mr-1">
+      {{ availableLocale }}
+    </option>
+  </select>
 </template>
-
-<style scoped>
-    .p-dropdown {
-        border: none!important;
-    }
-</style>

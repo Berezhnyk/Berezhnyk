@@ -6,10 +6,6 @@ const props = defineProps({
   service: Object,
 })
 
-onMounted(() => {
-  useLocaleStore()
-})
-
 const { locale } = useI18n({ useScope: 'global' })
 </script>
 

@@ -130,7 +130,7 @@ a { text-decoration: none; }
 
 li { list-style: none; }
 
-img, Icon, icon, ion-icon, a, button, time, span { display: block; }
+img, Icon, icon, a, button, time, span { display: block; }
 
 button {
   font: inherit;
@@ -206,8 +206,6 @@ article {
   border-radius: inherit;
   z-index: -1;
 }
-
-.icon-box ion-icon { --ionicon-stroke-width: 35px; }
 
 article { display: none; }
 
@@ -694,8 +692,6 @@ main {
 .modal-close-btn:hover,
 .modal-close-btn:focus { opacity: 1; }
 
-.modal-close-btn ion-icon { --ionicon-stroke-width: 50px; }
-
 .modal-avatar-box {
   background: var(--bg-gradient-onyx);
   width: max-content;
@@ -1005,8 +1001,6 @@ main {
   --scale: 1;
   opacity: 1;
 }
-
-.project-item-icon-box ion-icon { --ionicon-stroke-width: 50px; }
 
 .project-img img {
   width: 100%;

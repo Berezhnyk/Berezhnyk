@@ -33,32 +33,14 @@ export default defineNuxtConfig({
     },
   },
   css: [
-    // 'primevue/resources/themes/bootstrap4-dark-blue/theme.css',
-    // 'primevue/resources/primevue.css',
-    // 'primeicons/primeicons.css',
+    '/assets/css/fonts.css',
     '/assets/css/style.css',
   ],
-  build: {
-    transpile: ['primevue', 'pinia-orm'],
-  },
   tailwindcss: {
     cssPath: '~/assets/css/tailwind.css',
     configPath: 'tailwind.config.js',
     exposeConfig: true,
     injectPosition: 0,
     viewer: true,
-  },
-  vue: {
-    config: {
-      productionTip: true,
-      warn: false,
-    },
-    compilerOptions: {
-      isCustomElement: tag => tag.startsWith('ion-'),
-    },
-  },
-  loading: {
-    color: 'blue',
-    height: '5px',
   },
 })

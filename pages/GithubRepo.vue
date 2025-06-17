@@ -1,5 +1,5 @@
 <template>
-  <div class="border h-full rounded p-4 flex flex-col">
+  <div class="h-full rounded p-4 flex flex-col">
     <div class="flex items-center">
       <svg viewBox="0 0 16 16" class="w-4 h-4 fill-current mr-2" aria-hidden="true">
         <path fill-rule="evenodd" :d="icon.book"></path>
