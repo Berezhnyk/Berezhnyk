@@ -24,6 +24,7 @@
         "remote": "Remote",
         "present": "Present",
         "company": "Company",
-        "czechia": "Czechia"
+        "czechia": "Czechia",
+        "showContacts": "Show Contacts"
     }
 }

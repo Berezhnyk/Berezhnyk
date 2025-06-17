@@ -10,7 +10,7 @@ onMounted(() => {
 
 <template>
   <Transition name="bounce">
-    <div v-show="!cookie.getCookie" class="container left-0 right-0 mx-auto child md:w-[25%] glass-panel bottom-20 fixed z-[100] flex items-center justify-between relative overflow-hidden">
+    <div v-show="!cookie.getCookie" class="left-1/2 transform -translate-x-1/2 md:w-[25%] w-[90%] glass-panel bottom-5 fixed z-[100] flex items-center justify-between overflow-hidden">
       <span class="text-[#fafafa] relative z-10">This site use cookies! 🍪</span>
       <span class="cursor-pointer glass-close-button relative z-10" @click="cookie.setCookie()">
         <Icon name="close-outline" :size="16" />

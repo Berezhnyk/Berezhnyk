@@ -9,23 +9,25 @@ function toggleMenu() {
 <template>
   <aside class="sidebar relative overflow-hidden" :class="{ active: isOpen }">
     <div class="sidebar-info relative z-10">
-      <figure class="avatar-box glass-avatar-container">
-        <img src="/images/avatar.jpeg" alt="Photo" width="80">
-      </figure>
+      <div class="sidebar-header">
+        <figure class="avatar-box glass-avatar-container">
+          <img src="/images/avatar.jpeg" alt="Photo" width="80">
+        </figure>
+        
+        <div class="info-content">
+          <h1 class="name" title="Ivan Berezhnyk">
+            Ivan Berezhnyk
+          </h1>
 
-      <div class="info-content">
-        <h1 class="name" title="Ivan Berezhnyk">
-          Ivan Berezhnyk
-        </h1>
-
-        <p class="title text-center lg:block flex items-center justify-center gap-1 text-sm">
-          <span class="lg:after:content-[''] after:content-[',']">API and Web Development</span>
-          <span>Senior Software Engineer</span>
-        </p>
+          <p class="title">
+            <span class="block lg:inline">API and Web Development</span>
+            <span class="block lg:inline lg:before:content-[',_']">Senior Software Engineer</span>
+          </p>
+        </div>
       </div>
 
       <button class="info_more-btn glass-button" @click="isOpen = !isOpen">
-        <span class="text-sm">Show Contacts</span>
+        <span class="show-contacts-text">{{ $t('common.showContacts') }}</span>
         <Icon name="chevron-down" :size="14" />
       </button>
     </div>
@@ -125,17 +127,48 @@ function toggleMenu() {
 
 @media (min-width: 1250px) {
   .sidebar {
-    padding: 15px;
+    padding: 20px;
     margin-bottom: 0; /* Uses flexbox gap at this breakpoint */
+    max-width: 300px; /* Make sidebar narrower on large screens */
   }
 }
 
 .sidebar-info {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 16px;
   margin-bottom: 30px;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 50px;
+  margin-bottom: 4px; /* Add space between header and button */
+}
+
+@media (max-width: 767px) {
+  .sidebar-header {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+}
+
+@media (min-width: 1250px) {
+  .sidebar-info {
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .sidebar-header {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
 }
 
 /* Removed .glass-panel as it conflicts with global .sidebar styling */
@@ -151,7 +184,7 @@ function toggleMenu() {
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  flex-shrink: 0;
+  flex-shrink: 0; /* Prevent avatar from shrinking */
 }
 
 .glass-avatar-container:hover {
@@ -175,21 +208,49 @@ function toggleMenu() {
   }
 }
 
+@media (min-width: 1250px) {
+  .glass-avatar-container img {
+    width: 70px;
+    height: 70px;
+  }
+}
+
 .info-content {
-  text-align: center;
+  text-align: left;
   flex-grow: 1;
+  min-width: 0; /* Prevent text overflow */
+}
+
+@media (max-width: 767px) {
+  .info-content {
+    text-align: center;
+  }
+}
+
+@media (min-width: 1250px) {
+  .info-content {
+    text-align: center;
+  }
 }
 
 .name {
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 8px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  line-height: 1.2;
+  word-break: break-word; /* Handle long names better */
 }
 
 @media (max-width: 768px) {
+  .name {
+    font-size: 1.1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@media (min-width: 1250px) {
   .name {
     font-size: 1.1rem;
   }
@@ -199,9 +260,16 @@ function toggleMenu() {
   font-size: 0.875rem;
   opacity: 0.8;
   line-height: 1.4;
+  word-break: break-word;
 }
 
 @media (max-width: 768px) {
+  .title {
+    font-size: 0.75rem;
+  }
+}
+
+@media (min-width: 1250px) {
   .title {
     font-size: 0.75rem;
   }
@@ -220,16 +288,26 @@ function toggleMenu() {
   gap: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
-  width: auto;
-  min-width: 140px;
-  max-width: 180px;
+  width: 100%;
   font-size: 0.875rem;
+}
+
+.show-contacts-text {
+  display: block; /* Always show the text */
 }
 
 @media (max-width: 768px) {
   .glass-button {
     padding: 8px 12px;
+    font-size: 0.75rem;
+  }
+}
+
+@media (min-width: 1250px) {
+  .glass-button {
+    padding: 8px 12px;
     min-width: 120px;
+    max-width: 160px;
     font-size: 0.75rem;
   }
 }
@@ -263,6 +341,13 @@ function toggleMenu() {
   margin-bottom: 20px;
 }
 
+@media (min-width: 1250px) {
+  .contacts-list {
+    gap: 8px;
+    margin-bottom: 15px;
+  }
+}
+
 .glass-contact-item {
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(4px);
@@ -277,6 +362,13 @@ function toggleMenu() {
 }
 
 @media (max-width: 768px) {
+  .glass-contact-item {
+    padding: 10px;
+    gap: 10px;
+  }
+}
+
+@media (min-width: 1250px) {
   .glass-contact-item {
     padding: 10px;
     gap: 10px;
@@ -311,6 +403,14 @@ function toggleMenu() {
   }
 }
 
+@media (min-width: 1250px) {
+  .glass-icon-box {
+    min-width: 30px;
+    min-height: 30px;
+    padding: 6px;
+  }
+}
+
 .contact-info {
   flex-grow: 1;
   min-width: 0;
@@ -328,6 +428,12 @@ function toggleMenu() {
   }
 }
 
+@media (min-width: 1250px) {
+  .contact-title {
+    font-size: 0.7rem;
+  }
+}
+
 .glass-link {
   transition: all 0.2s ease;
   text-decoration: none;
@@ -336,6 +442,12 @@ function toggleMenu() {
 }
 
 @media (max-width: 768px) {
+  .glass-link {
+    font-size: 0.75rem;
+  }
+}
+
+@media (min-width: 1250px) {
   .glass-link {
     font-size: 0.75rem;
   }
@@ -370,6 +482,14 @@ function toggleMenu() {
   }
 }
 
+@media (min-width: 1250px) {
+  .glass-social-link {
+    padding: 8px;
+    min-width: 38px;
+    min-height: 38px;
+  }
+}
+
 .glass-social-link:hover {
   background: rgba(255, 255, 255, 0.12);
   border-color: rgba(255, 255, 255, 0.2);
@@ -388,6 +508,12 @@ function toggleMenu() {
   margin: 20px 0;
 }
 
+@media (min-width: 1250px) {
+  .glass-separator {
+    margin: 15px 0;
+  }
+}
+
 .social-list {
   display: flex;
   gap: 12px;
@@ -399,6 +525,12 @@ function toggleMenu() {
 }
 
 @media (max-width: 768px) {
+  .social-list {
+    gap: 8px;
+  }
+}
+
+@media (min-width: 1250px) {
   .social-list {
     gap: 8px;
   }
