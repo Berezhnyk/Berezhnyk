@@ -13,6 +13,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        primary: 'hsl(168deg 90% 51%)',
         ranko: {
           50: '#FCE5C1',
           100: '#FBDDAD',

@@ -1,31 +1,31 @@
 <template>
-  <div class="h-full rounded p-4 flex flex-col">
-    <div class="flex items-center">
+  <div class="h-full rounded-xl p-6 flex flex-col glass-panel relative overflow-hidden">
+    <div class="flex items-center relative z-10">
       <svg viewBox="0 0 16 16" class="w-4 h-4 fill-current mr-2" aria-hidden="true">
         <path fill-rule="evenodd" :d="icon.book"></path>
       </svg>
-      <a :href="repository.html_url" target="_blank" class="font-medium text-purple-800 dark:text-purple-200">
+      <a :href="repository.html_url" target="_blank" class="font-medium glass-link glass-repo-link">
         {{ repository.name }}
       </a>
     </div>
-    <div class="text-xs mt-2 mb-4">
+    <div class="text-xs mt-2 mb-4 relative z-10">
       {{ repository.description }}
     </div>
-    <div class="mt-auto text-xs flex">
-      <div v-if="repository.language" class="flex items-center mr-4">
+    <div class="mt-auto text-xs flex relative z-10">
+      <div v-if="repository.language" class="flex items-center mr-4 glass-badge">
         <span
           :style="{ backgroundColor: repository.language ? bgColor : '' }"
           class="w-3 h-3 rounded-full relative"
         ></span>
         <span class="pl-2">{{ repository.language }}</span>
       </div>
-      <div v-if="repository.stargazers_count" class="flex items-center mr-4">
+      <div v-if="repository.stargazers_count" class="flex items-center mr-4 glass-badge">
         <svg class="w-4 h-4 fill-current mr-2" aria-label="stars" viewBox="0 0 16 16" role="img">
           <path fill-rule="evenodd" :d="icon.star"></path>
         </svg>
         <span>{{ repository.stargazers_count }}</span>
       </div>
-      <div v-if="repository.size" class="flex items-center">
+      <div v-if="repository.size" class="flex items-center glass-badge">
         <svg class="w-4 h-4 fill-current mr-2" aria-label="fork" viewBox="0 0 16 16" role="img">
           <path fill-rule="evenodd" :d="icon.fork"></path>
         </svg>
@@ -62,3 +62,87 @@ export default {
   })
 };
 </script>
+
+<style scoped>
+.glass-panel {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.glass-panel:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.glass-badge {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 4px 8px;
+  transition: all 0.2s ease;
+}
+
+.glass-badge:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.glass-link {
+  transition: all 0.2s ease;
+}
+
+.glass-repo-link {
+  color: var(--vegas-gold);
+  text-decoration: none;
+}
+
+.glass-repo-link:hover,
+.glass-repo-link:focus {
+  color: var(--vegas-gold);
+  text-shadow: 0 0 8px rgba(201, 169, 110, 0.5);
+}
+
+.glass-repo-link:focus {
+  outline: 2px solid rgba(201, 169, 110, 0.3);
+  outline-offset: 2px;
+}
+
+.glass-link:hover {
+  text-shadow: 0 0 8px rgba(147, 51, 234, 0.5);
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .glass-panel {
+    background: rgba(0, 0, 0, 0.15);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .glass-panel:hover {
+    background: rgba(0, 0, 0, 0.25);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+  
+  .glass-badge {
+    background: rgba(0, 0, 0, 0.15);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+  
+  .glass-badge:hover {
+    background: rgba(0, 0, 0, 0.25);
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+}
+</style>
