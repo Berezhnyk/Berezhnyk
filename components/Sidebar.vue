@@ -1,25 +1,32 @@
 <script setup>
-let isOpen = ref(false)
+// Initialize with false to ensure consistent SSR/client state
+const isOpen = ref(false)
+const isClient = ref(false)
 
 function toggleMenu() {
-  isOpen = !isOpen
+  isOpen.value = !isOpen.value
 }
+
+onMounted(() => {
+  isClient.value = true
+})
 </script>
 
 <template>
-  <aside class="sidebar relative overflow-hidden" :class="{ active: isOpen }">
+  <aside class="sidebar relative overflow-hidden" :class="{ active: isClient && isOpen }">
     <div class="top-actions-row">
       <div class="top-left-actions">
         <a href="mailto:ivan@berezhnyk.net" class="social-link glass-social-link">
           <Icon name="mail-outline" :size="18" />
         </a>
         <LangSwitcher />
+        <DarkToggle />
       </div>
       
       <div class="top-right-actions">
-        <button class="show-contacts-btn glass-button-compact" @click="isOpen = !isOpen">
+        <button class="show-contacts-btn glass-button-compact" @click="toggleMenu">
           <span class="show-contacts-text">{{ isOpen ? $t('common.hideContacts') : $t('common.showContacts') }}</span>
-          <Icon name="chevron-down" :size="14" :class="{ 'rotate-180': isOpen }" />
+          <Icon name="chevron-down" :size="14" :class="{ 'rotate-180': isClient && isOpen }" />
         </button>
       </div>
     </div>
@@ -609,65 +616,63 @@ function toggleMenu() {
 }
 
 /* Dark mode adjustments */
-@media (prefers-color-scheme: dark) {
-  .glass-panel {
-    background: rgba(0, 0, 0, 0.15);
-    border-color: rgba(255, 255, 255, 0.1);
-  }
-  
-  .glass-avatar-container {
-    background: rgba(0, 0, 0, 0.2);
-    border-color: rgba(255, 255, 255, 0.15);
-  }
-  
-  .glass-avatar-container:hover {
-    background: rgba(0, 0, 0, 0.3);
-    border-color: rgba(255, 255, 255, 0.25);
-  }
-  
-  .glass-button {
-    background: rgba(0, 0, 0, 0.2);
-    border-color: rgba(255, 255, 255, 0.1);
-  }
-  
-  .glass-button:hover {
-    background: rgba(0, 0, 0, 0.3);
-    border-color: rgba(255, 255, 255, 0.15);
-  }
-  
-  .glass-button-compact {
-    background: rgba(0, 0, 0, 0.2);
-    border-color: rgba(255, 255, 255, 0.1);
-  }
-  
-  .glass-button-compact:hover {
-    background: rgba(0, 0, 0, 0.3);
-    border-color: rgba(255, 255, 255, 0.15);
-  }
-  
-  .glass-contact-item {
-    background: rgba(0, 0, 0, 0.15);
-    border-color: rgba(255, 255, 255, 0.08);
-  }
-  
-  .glass-contact-item:hover {
-    background: rgba(0, 0, 0, 0.25);
-    border-color: rgba(255, 255, 255, 0.12);
-  }
-  
-  .glass-icon-box {
-    background: rgba(0, 0, 0, 0.2);
-    border-color: rgba(255, 255, 255, 0.08);
-  }
-  
-  .glass-social-link {
-    background: rgba(0, 0, 0, 0.2);
-    border-color: rgba(255, 255, 255, 0.08);
-  }
-  
-  .glass-social-link:hover {
-    background: rgba(0, 0, 0, 0.3);
-    border-color: rgba(255, 255, 255, 0.12);
-  }
+.dark .glass-panel {
+  background: rgba(0, 0, 0, 0.15);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .glass-avatar-container {
+  background: rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.dark .glass-avatar-container:hover {
+  background: rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.dark .glass-button {
+  background: rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .glass-button:hover {
+  background: rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.dark .glass-button-compact {
+  background: rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .glass-button-compact:hover {
+  background: rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.dark .glass-contact-item {
+  background: rgba(0, 0, 0, 0.15);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.dark .glass-contact-item:hover {
+  background: rgba(0, 0, 0, 0.25);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.dark .glass-icon-box {
+  background: rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.dark .glass-social-link {
+  background: rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.dark .glass-social-link:hover {
+  background: rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.12);
 }
 </style>

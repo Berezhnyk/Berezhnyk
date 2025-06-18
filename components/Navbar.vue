@@ -105,32 +105,30 @@ a.router-link-exact-active {
 }
 
 /* Dark mode adjustments */
-@media (prefers-color-scheme: dark) {
-  .glass-panel {
-    background: rgba(0, 0, 0, 0.2);
-    border-color: rgba(255, 255, 255, 0.1);
-  }
-  
-  .glass-nav-link {
-    background: rgba(0, 0, 0, 0.15);
-    border-color: rgba(255, 255, 255, 0.08);
-  }
-  
-  .glass-nav-link:hover {
-    background: rgba(0, 0, 0, 0.25);
-    border-color: rgba(255, 255, 255, 0.12);
-  }
-  
-  a.router-link-active {
-    background: rgba(201, 169, 110, 0.3);
-    border-color: rgba(201, 169, 110, 0.4);
-    color: var(--vegas-gold);
-  }
-  
-  a.router-link-exact-active {
-    background: rgba(201, 169, 110, 0.4);
-    border-color: rgba(201, 169, 110, 0.5);
-    color: var(--vegas-gold);
-  }
+.dark .glass-panel {
+  background: rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .glass-nav-link {
+  background: rgba(0, 0, 0, 0.15);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.dark .glass-nav-link:hover {
+  background: rgba(0, 0, 0, 0.25);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.dark a.router-link-active {
+  background: rgba(201, 169, 110, 0.3);
+  border-color: rgba(201, 169, 110, 0.4);
+  color: var(--vegas-gold);
+}
+
+.dark a.router-link-exact-active {
+  background: rgba(201, 169, 110, 0.4);
+  border-color: rgba(201, 169, 110, 0.5);
+  color: var(--vegas-gold);
 }
 </style>

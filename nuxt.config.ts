@@ -40,6 +40,7 @@ export default defineNuxtConfig({
   experimental: {
     payloadExtraction: false, // Better for static sites
   },
+  ssr: true,
   plugins: [
     { src: '~/plugins/vercel.ts', mode: 'client' }
   ],

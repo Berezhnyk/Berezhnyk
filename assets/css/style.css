@@ -1728,7 +1728,7 @@ textarea.contact::-webkit-resizer { display: none; }
 }
 
 /* Dark mode adjustments for glassmorphism */
-@media (prefers-color-scheme: dark) {
+.dark {
   .sidebar,
   article {
     background: rgba(0, 0, 0, 0.08) !important;

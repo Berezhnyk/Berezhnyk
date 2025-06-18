@@ -26,7 +26,7 @@
 }
 
 /* Dark mode glass backgrounds */
-@media (prefers-color-scheme: dark) {
+.dark {
   .glass-base {
     border-color: rgba(255, 255, 255, 0.1);
   }
@@ -194,7 +194,7 @@
   border-color: rgba(255, 255, 255, 0.16);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .glass-badge {
     background: rgba(0, 0, 0, 0.15);
     border-color: rgba(255, 255, 255, 0.08);
@@ -230,7 +230,7 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   .glass-button {
     background: rgba(0, 0, 0, 0.2);
     border-color: rgba(255, 255, 255, 0.1);

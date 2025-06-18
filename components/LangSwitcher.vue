@@ -5,9 +5,11 @@ const { locale, setLocale } = useI18n()
 // Define available locales
 const availableLocales = ['en', 'uk_UA', 'cz_CZ']
 
+// Ensure locale is properly set with fallback
+const currentLocale = computed(() => locale.value || 'en')
+
 async function changeLang() {
-  const currentLocale = locale.value || 'en'
-  const currentIndex = availableLocales.indexOf(currentLocale)
+  const currentIndex = availableLocales.indexOf(currentLocale.value)
   const nextIndex = (currentIndex + 1) % availableLocales.length
   const nextLocale = availableLocales[nextIndex]
   
@@ -21,19 +23,35 @@ async function changeLang() {
 </script>
 
 <template>
-  <div class="glass-lang-switcher relative overflow-hidden cursor-pointer" @click="changeLang()">
-    <!-- Subtle background effect -->
-    <div class="absolute inset-0 glass-lang-bg opacity-30"></div>
-    
-    <NuxtImg 
-      :src="`/flags/${locale || 'en'}.png`" 
-      :alt="`${locale || 'en'} flag`"
-      class="h-6 relative z-10 transition-transform duration-300 hover:scale-110"
-      width="24"
-      height="24"
-      loading="eager"
-    />
-  </div>
+  <ClientOnly>
+    <div class="glass-lang-switcher relative overflow-hidden cursor-pointer" @click="changeLang()">
+      <!-- Subtle background effect -->
+      <div class="absolute inset-0 glass-lang-bg opacity-30"></div>
+      
+      <NuxtImg 
+        :src="`/flags/${currentLocale}.png`" 
+        :alt="`${currentLocale} flag`"
+        class="h-6 relative z-10 transition-transform duration-300 hover:scale-110"
+        width="24"
+        height="24"
+        loading="eager"
+      />
+    </div>
+    <template #fallback>
+      <!-- Fallback with default locale -->
+      <div class="glass-lang-switcher relative overflow-hidden">
+        <div class="absolute inset-0 glass-lang-bg opacity-30"></div>
+        <NuxtImg 
+          src="/flags/en.png" 
+          alt="en flag"
+          class="h-6 relative z-10"
+          width="24"
+          height="24"
+          loading="eager"
+        />
+      </div>
+    </template>
+  </ClientOnly>
 </template>
 
 <style scoped>
@@ -94,16 +112,14 @@ async function changeLang() {
 }
 
 /* Dark mode adjustments */
-@media (prefers-color-scheme: dark) {
-  .glass-lang-switcher {
-    background: rgba(0, 0, 0, 0.2);
-    border-color: rgba(255, 255, 255, 0.1);
-  }
-  
-  .glass-lang-switcher:hover {
-    background: rgba(0, 0, 0, 0.3);
-    border-color: rgba(255, 255, 255, 0.15);
-  }
+.dark .glass-lang-switcher {
+  background: rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .glass-lang-switcher:hover {
+  background: rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
 /* Mobile responsiveness */

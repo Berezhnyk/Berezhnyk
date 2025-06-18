@@ -4,18 +4,28 @@ const color = useColorMode()
 function toggleDark() {
   color.preference = color.value === 'dark' ? 'light' : 'dark'
 }
+
 const themeColor = computed(() => {
   return color.value
 })
 </script>
 
 <template>
-  <button @click="toggleDark" class="glass-toggle-button relative overflow-hidden">
-    <!-- Subtle background effect -->
-    <div class="absolute inset-0 glass-toggle-bg opacity-40"></div>
-    
-    <Icon :name="themeColor === 'dark' ? 'sun' : 'moon'" :size="20" class="relative z-10" />
-  </button>
+  <ClientOnly>
+    <button @click="toggleDark" class="glass-toggle-button relative overflow-hidden">
+      <!-- Subtle background effect -->
+      <div class="absolute inset-0 glass-toggle-bg opacity-40"></div>
+      
+      <Icon :name="themeColor === 'dark' ? 'sun' : 'moon'" :size="20" class="relative z-10" />
+    </button>
+    <template #fallback>
+      <!-- Fallback content while hydrating -->
+      <button class="glass-toggle-button relative overflow-hidden" disabled>
+        <div class="absolute inset-0 glass-toggle-bg opacity-40"></div>
+        <Icon name="moon" :size="20" class="relative z-10" />
+      </button>
+    </template>
+  </ClientOnly>
 </template>
 
 <style scoped>
@@ -71,16 +81,14 @@ const themeColor = computed(() => {
 }
 
 /* Dark mode adjustments */
-@media (prefers-color-scheme: dark) {
-  .glass-toggle-button {
-    background: rgba(0, 0, 0, 0.2);
-    border-color: rgba(255, 255, 255, 0.1);
-  }
-  
-  .glass-toggle-button:hover {
-    background: rgba(0, 0, 0, 0.3);
-    border-color: rgba(255, 255, 255, 0.15);
-  }
+.dark .glass-toggle-button {
+  background: rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .glass-toggle-button:hover {
+  background: rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
 /* Mobile responsiveness */

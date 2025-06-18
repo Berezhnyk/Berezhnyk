@@ -1,14 +1,15 @@
 <script setup>
 import { SpeedInsights } from "@vercel/speed-insights/nuxt"
-// Use Nuxt i18n composable
+// Use Nuxt i18n composable with fallback
 const { locale } = useI18n()
+const safeLocale = computed(() => locale.value || 'en')
 
-const ogImageUrl = `https://avatars.githubusercontent.com/u/6099167?s=400&u=4a8d3ab9b1b207b8c2c2b812a87facbb7dee87e4&v=4&t=${Date.now()}`
+const ogImageUrl = `https://avatars.githubusercontent.com/u/6099167?s=400&u=4a8d3ab9b1b207b8c2c2b812a87facbb7dee87e4&v=4`
 
 // Basic head configuration (non-SEO metadata)
 useHead({
   htmlAttrs: {
-    lang: locale,
+    lang: safeLocale,
   },
   titleTemplate: (pageTitle) => {
     return pageTitle ? `${pageTitle} - Ivan Berezhnyk ` : 'Ivan Berezhnyk'
