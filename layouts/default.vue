@@ -18,7 +18,7 @@ useHead({
   ],
   link: [
     {
-      rel: 'icon', type: 'image/jpeg', href: '../images/icon.jpeg',
+      rel: 'icon', type: 'image/webp', href: '../images/icon.webp',
     },
   ],
 })

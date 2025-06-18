@@ -1,120 +1,122 @@
 <script setup>
-import { useLocaleStore } from '../composables/locale'
 import { useI18n } from 'vue-i18n'
+import { useLocaleStore } from '../composables/locale'
+const { locale } = useI18n({ useScope: 'global' })
 
 const cookieLocale = useLocaleStore()
-const { locale, availableLocales } = useI18n({ useScope: 'global' })
 
-function changeLocation(event) {
-  const selectedLocale = event.target.value
-  locale.value = selectedLocale
-  cookieLocale.setLocale(selectedLocale)
-  localStorage.setItem('locale', selectedLocale)
+// Define available locales
+const availableLocales = ['en', 'uk_UA', 'cz_CZ']
+
+onMounted(() => {
+  useLocaleStore()
+})
+
+function changeLang() {
+  const currentIndex = availableLocales.indexOf(locale.value)
+  const nextIndex = (currentIndex + 1) % availableLocales.length
+  const nextLocale = availableLocales[nextIndex]
+  
+  cookieLocale.setLocale(nextLocale)
+  locale.value = nextLocale
 }
 </script>
 
 <template>
-  <select 
-    :value="locale" 
-    @change="changeLocation"
-    class="glass-select relative overflow-hidden"
-  >
+  <div class="glass-lang-switcher relative overflow-hidden cursor-pointer" @click="changeLang()">
     <!-- Subtle background effect -->
-    <div class="absolute inset-0 glass-select-bg opacity-30 pointer-events-none"></div>
+    <div class="absolute inset-0 glass-lang-bg opacity-30"></div>
     
-    <option v-for="availableLocale in availableLocales" :key="availableLocale" :value="availableLocale" class="glass-option">
-      <img :src="`/flags/${availableLocale}.png`" :alt="availableLocale" class="inline h-4 w-4 mr-1">
-      {{ availableLocale }}
-    </option>
-  </select>
+    <NuxtImg 
+      :src="`/flags/${locale}.png`" 
+      :alt="`${locale} flag`"
+      class="h-6 relative z-10 transition-transform duration-300 hover:scale-110"
+      width="24"
+      height="24"
+      loading="eager"
+    />
+  </div>
 </template>
 
 <style scoped>
-.glass-select {
+.glass-lang-switcher {
   background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 8px;
-  padding: 8px 12px;
-  color: inherit;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 
     0 4px 16px rgba(0, 0, 0, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
-  background-position: right 8px center;
-  background-repeat: no-repeat;
-  background-size: 16px;
-  padding-right: 32px;
 }
 
-.glass-select:hover {
+.glass-lang-switcher:hover {
   background: rgba(255, 255, 255, 0.12);
   border-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-1px);
+  transform: translateY(-1px) scale(1.05);
   box-shadow: 
     0 8px 24px rgba(0, 0, 0, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
-.glass-select:focus {
-  outline: none;
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(147, 51, 234, 0.4);
-  box-shadow: 
-    0 0 0 3px rgba(147, 51, 234, 0.1),
-    0 8px 24px rgba(0, 0, 0, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+.glass-lang-switcher:active {
+  transform: translateY(0) scale(0.98);
 }
 
-.glass-option {
-  background: rgba(255, 255, 255, 0.9);
-  color: #1f2937;
-  padding: 8px 12px;
-}
-
-.glass-select-bg {
+.glass-lang-bg {
   background: linear-gradient(
-    135deg,
-    rgba(147, 51, 234, 0.2) 0%,
-    rgba(59, 130, 246, 0.2) 50%,
-    rgba(16, 185, 129, 0.2) 100%
+    45deg,
+    rgba(239, 68, 68, 0.3) 0%,
+    rgba(59, 130, 246, 0.3) 33%,
+    rgba(34, 197, 94, 0.3) 66%,
+    rgba(168, 85, 247, 0.3) 100%
   );
-  background-size: 200% 200%;
-  animation: gradient-shift 6s ease-in-out infinite;
+  background-size: 300% 300%;
+  animation: flag-gradient 8s ease-in-out infinite;
 }
 
-@keyframes gradient-shift {
+@keyframes flag-gradient {
   0%, 100% {
     background-position: 0% 50%;
   }
+  25% {
+    background-position: 50% 0%;
+  }
   50% {
     background-position: 100% 50%;
+  }
+  75% {
+    background-position: 50% 100%;
   }
 }
 
 /* Dark mode adjustments */
 @media (prefers-color-scheme: dark) {
-  .glass-select {
+  .glass-lang-switcher {
     background: rgba(0, 0, 0, 0.2);
     border-color: rgba(255, 255, 255, 0.1);
   }
   
-  .glass-select:hover {
+  .glass-lang-switcher:hover {
     background: rgba(0, 0, 0, 0.3);
     border-color: rgba(255, 255, 255, 0.15);
   }
-  
-  .glass-select:focus {
-    background: rgba(0, 0, 0, 0.35);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .glass-lang-switcher {
+    padding: 6px;
   }
   
-  .glass-option {
-    background: rgba(31, 41, 55, 0.95);
-    color: #f9fafb;
+  img {
+    height: 20px;
+    width: auto;
   }
 }
 </style>

@@ -71,7 +71,14 @@ const { data: about } = await useFetch('/api/about')
 
         <div class="flex gap-5 mb-5 justify-start items-center">
           <div class="modal-avatar-box">
-            <img :src="testimonialItem.image" alt="Daniel lewis" width="80">
+            <NuxtImg 
+              :src="testimonialItem.image" 
+              alt="Daniel lewis" 
+              width="80" 
+              height="80"
+              format="webp"
+              loading="lazy"
+            />
           </div>
 
           <div class="modal-content">
@@ -83,7 +90,14 @@ const { data: about } = await useFetch('/api/about')
         </div>
 
         <div class="flex gap-5 items-start">
-          <img class="my-auto hidden md:block" src="/images/icon-quote.svg" alt="quote icon">
+          <NuxtImg 
+            class="my-auto hidden md:block" 
+            src="/images/icon-quote.svg" 
+            alt="quote icon"
+            width="24"
+            height="24"
+            loading="lazy"
+          />
           <p class="text-justify text-gray-400 text-sm md:text-md" v-html="testimonialItem.content?.[locale] || testimonialItem.content?.en" />
         </div>
         <div class="mt-2 flex justify-end text-sm text-gray-600 italic">

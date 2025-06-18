@@ -25,6 +25,7 @@
         "present": "Present",
         "company": "Company",
         "czechia": "Czechia",
-        "showContacts": "Show Contacts"
+        "showContacts": "Show Contacts",
+        "hideContacts": "Hide Contacts"
     }
 }

@@ -12,7 +12,16 @@ const { locale } = useI18n({ useScope: 'global' })
 <template>
   <li class="service-item glass-panel relative overflow-hidden">
     <div class="service-icon-box relative z-10 glass-icon-container">
-      <img v-if="service.image !== null && service.icon !== ''" :src="service.image" alt="mobile app icon" class="w-40">
+      <NuxtImg 
+        v-if="service.image !== null && service.icon !== ''" 
+        :src="service.image" 
+        alt="mobile app icon" 
+        class="w-40"
+        width="160"
+        height="160"
+        loading="lazy"
+        format="webp"
+      />
       <Icon v-else :icon="service.icon" class="text-ranko-500 text-[3rem] mx-auto" style="width: 40px" />
     </div>
 

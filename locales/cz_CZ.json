@@ -25,6 +25,7 @@
         "present": "Současnost",
         "company": "Společnost",
         "czechia": "Česká republika",
-        "showContacts": "Zobrazit kontakty"
+        "showContacts": "Zobrazit kontakty",
+        "hideContacts": "Skrýt kontakty"
     }
 }

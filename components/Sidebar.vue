@@ -8,10 +8,35 @@ function toggleMenu() {
 
 <template>
   <aside class="sidebar relative overflow-hidden" :class="{ active: isOpen }">
+    <div class="top-actions-row">
+      <div class="top-left-actions">
+        <NuxtLink to="mailto:ivan@berezhnyk.net" class="social-link glass-social-link" target="_blank">
+          <Icon name="mail-outline" :size="18" />
+        </NuxtLink>
+        <LangSwitcher />
+      </div>
+      
+      <div class="top-right-actions">
+        <button class="show-contacts-btn glass-button-compact" @click="isOpen = !isOpen">
+          <span class="show-contacts-text">{{ isOpen ? $t('common.hideContacts') : $t('common.showContacts') }}</span>
+          <Icon name="chevron-down" :size="14" :class="{ 'rotate-180': isOpen }" />
+        </button>
+      </div>
+    </div>
+    
     <div class="sidebar-info relative z-10">
       <div class="sidebar-header">
         <figure class="avatar-box glass-avatar-container">
-          <img src="/images/avatar.jpeg" alt="Photo" width="80">
+          <NuxtImg 
+            src="/images/avatar.webp" 
+            alt="Ivan Berezhnyk Photo" 
+            width="80" 
+            height="80"
+            format="webp"
+            sizes="sm:80px md:120px lg:80px"
+            loading="eager"
+            fetchpriority="high"
+          />
         </figure>
         
         <div class="info-content">
@@ -26,10 +51,6 @@ function toggleMenu() {
         </div>
       </div>
 
-      <button class="info_more-btn glass-button" @click="isOpen = !isOpen">
-        <span class="show-contacts-text">{{ $t('common.showContacts') }}</span>
-        <Icon name="chevron-down" :size="14" />
-      </button>
     </div>
 
     <div class="sidebar-info_more relative z-10">
@@ -78,17 +99,6 @@ function toggleMenu() {
           </div>
         </li>
       </ul>
-
-      <div class="separator glass-separator" />
-
-      <ul class="social-list">
-        <li class="social-item">
-          <NuxtLink to="mailto:ivan@berezhnyk.net" class="social-link glass-social-link" target="_blank">
-            <Icon name="mail-outline" :size="18" />
-          </NuxtLink>
-        </li>
-        <LangSwitcher2 />
-      </ul>
     </div>
   </aside>
 </template>
@@ -98,6 +108,54 @@ function toggleMenu() {
   margin: 0 auto 30px auto;
   padding: 15px;
   min-height: fit-content;
+}
+
+.top-actions-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-top: 5px;
+}
+
+@media (max-width: 768px) {
+  .top-actions-row {
+    gap: 8px;
+    margin-bottom: 15px;
+  }
+}
+
+.top-left-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .top-left-actions {
+    gap: 6px;
+  }
+}
+
+@media (min-width: 1250px) {
+  .top-left-actions {
+    gap: 8px;
+  }
+}
+
+.top-right-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .top-right-actions {
+    gap: 6px;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -288,8 +346,35 @@ function toggleMenu() {
   gap: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
-  width: 100%;
   font-size: 0.875rem;
+  width: 100%;
+}
+
+.glass-button-compact {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 768px) {
+  .glass-button-compact {
+    padding: 6px 10px;
+    font-size: 0.7rem;
+    gap: 4px;
+  }
 }
 
 .show-contacts-text {
@@ -306,8 +391,6 @@ function toggleMenu() {
 @media (min-width: 1250px) {
   .glass-button {
     padding: 8px 12px;
-    min-width: 120px;
-    max-width: 160px;
     font-size: 0.75rem;
   }
 }
@@ -316,6 +399,17 @@ function toggleMenu() {
   background: rgba(255, 255, 255, 0.12);
   border-color: rgba(255, 255, 255, 0.2);
   transform: translateY(-1px);
+}
+
+.glass-button-compact:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.glass-button-compact .rotate-180 {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
 }
 
 .sidebar-info_more {
@@ -514,28 +608,6 @@ function toggleMenu() {
   }
 }
 
-.social-list {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  justify-content: center;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-@media (max-width: 768px) {
-  .social-list {
-    gap: 8px;
-  }
-}
-
-@media (min-width: 1250px) {
-  .social-list {
-    gap: 8px;
-  }
-}
-
 /* Dark mode adjustments */
 @media (prefers-color-scheme: dark) {
   .glass-panel {
@@ -559,6 +631,16 @@ function toggleMenu() {
   }
   
   .glass-button:hover {
+    background: rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+  
+  .glass-button-compact {
+    background: rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .glass-button-compact:hover {
     background: rgba(0, 0, 0, 0.3);
     border-color: rgba(255, 255, 255, 0.15);
   }

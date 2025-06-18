@@ -25,6 +25,7 @@
         "present": "Теперішній час",
         "company": "Компанія",
         "czechia": "Чехія",
-        "showContacts": "Показати контакти"
+        "showContacts": "Показати контакти",
+        "hideContacts": "Сховати контакти"
     }
 }

@@ -5,6 +5,7 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@nuxtjs/tailwindcss',
     '@intlify/nuxt3',
+    '@nuxt/image',
   ],
   intlify: {
     localeDir: 'locales',
@@ -14,8 +15,18 @@ export default defineNuxtConfig({
       availableLocales: ['en', 'uk_UA', 'cz_CZ'],
     },
   },
+  runtimeConfig: {
+    public: {
+      // Enable performance monitoring
+      gtag: {
+        id: process.env.GTAG_ID
+      }
+    }
+  },
   experimental: {
     reactivityTransform: true,
+    inlineSSRStyles: false, // Better for caching
+    payloadExtraction: false, // Better for static sites
   },
   plugins: [{ src: '~/plugins/vercel.ts', mode: 'client' }
   ],
@@ -42,5 +53,48 @@ export default defineNuxtConfig({
     exposeConfig: true,
     injectPosition: 0,
     viewer: true,
+  },
+  nitro: {
+    prerender: {
+      routes: [
+        '/sitemap.xml', 
+        '/robots.txt',
+        '/api/testimonials',
+        '/api/services', 
+        '/api/about'
+      ]
+    },
+    compressPublicAssets: true,
+    // Cache API routes
+    routeRules: {
+      '/api/**': { headers: { 'cache-control': 's-maxage=3600' } },
+    }
+  },
+  // Add performance optimizations
+  vite: {
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'vue-vendor': ['vue', 'vue-router'],
+            'ui-vendor': ['@iconify/vue'],
+            'i18n-vendor': ['vue-i18n', '@intlify/nuxt3'],
+          }
+        }
+      }
+    }
+  },
+  app: {
+    head: {
+      link: [
+        // Preload critical fonts
+        { rel: 'preload', href: '/fonts/poppins-400.woff2', as: 'font', type: 'font/woff2', crossorigin: '' },
+        { rel: 'preload', href: '/fonts/poppins-500.woff2', as: 'font', type: 'font/woff2', crossorigin: '' },
+        // DNS prefetch for external resources
+        { rel: 'dns-prefetch', href: '//vercel-insights.com' },
+        // Preload critical images
+        { rel: 'preload', href: '/images/avatar.webp', as: 'image', type: 'image/webp' },
+      ]
+    }
   },
 })

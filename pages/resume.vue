@@ -64,16 +64,5 @@ useHead({
         </li>
       </ol>
     </section>
-
-    <section class="skill">
-      <ul class="skills-list content-card">
-        <SkillItem title="C#" progress="90" />
-        <SkillItem title="HTML5" progress="90" />
-        <SkillItem title="JavaScript/TypeScript" progress="80" />
-        <SkillItem title="Angular" progress="75" />
-        <SkillItem title="Vue" progress="65" />
-        <SkillItem title="Azure" progress="40" />
-      </ul>
-    </section>
   </article>
 </template>
