@@ -1,4 +1,5 @@
 <script setup>
+import { SpeedInsights } from "@vercel/speed-insights/nuxt"
 // Use Nuxt i18n composable
 const { locale } = useI18n()
 
@@ -47,5 +48,6 @@ useSeoMeta({
       <slot />
     </div>
     <CookieBar />
+    <SpeedInsights/>
   </main>
 </template>

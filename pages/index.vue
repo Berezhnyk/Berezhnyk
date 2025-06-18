@@ -10,10 +10,18 @@ const { locale } = useI18n()
 const safeLocale = computed(() => locale.value || 'en')
 
 /* Services */
-const { data: services } = await useFetch('/api/services')
+const { data: services } = await useFetch('/api/services', {
+  key: 'services',
+  server: true,
+  default: () => []
+})
 
-/* Services */
-const { data: about } = await useFetch('/api/about')
+/* About */
+const { data: about } = await useFetch('/api/about', {
+  key: 'about',
+  server: true,
+  default: () => []
+})
 </script>
 
 <template>
