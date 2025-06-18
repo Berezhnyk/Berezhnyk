@@ -1,16 +1,34 @@
-import { defineStore } from 'pinia'
-import { computed, ref } from 'vue'
-import { useCookie } from '#app'
-
-export const useLocaleStore = defineStore('localeStore', () => {
-  const locale = ref(useCookie('locale'))
-  function setLocale(val) {
-    locale.value = val
-    return locale.value
-  }
-  const getLocale = computed(() => {
-    return locale.value
+export const useLocale = () => {
+  const { locale, setLocale: setI18nLocale } = useI18n()
+  
+  // Get the locale from cookie
+  const locale_cookie = useCookie('locale', {
+    default: () => 'en',
+    maxAge: 60 * 60 * 24 * 365, // 1 year
   })
-
-  return { locale, setLocale, getLocale }
-})
+  
+  // Available locales
+  const availableLocales = ['en', 'uk_UA', 'cz_CZ']
+  
+  // Initialize locale from cookie on client-side
+  if (process.client && locale_cookie.value && 
+      availableLocales.includes(locale_cookie.value) && 
+      locale_cookie.value !== locale.value) {
+    nextTick(() => {
+      setI18nLocale(locale_cookie.value)
+    })
+  }
+  
+  const setLocale = (newLocale) => {
+    if (availableLocales.includes(newLocale)) {
+      locale_cookie.value = newLocale
+      setI18nLocale(newLocale)
+    }
+  }
+  
+  return {
+    locale,
+    setLocale,
+    availableLocales
+  }
+}

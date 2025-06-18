@@ -1,11 +1,6 @@
 <script setup>
-import { useI18n } from 'vue-i18n'
-import { useLocaleStore } from './composables/locale'
-
-const { locale } = useI18n({ useScope: 'global' })
-const cookieLocale = useLocaleStore()
-
-locale.value = cookieLocale.getLocale || 'en'
+// Remove the custom locale handling - let Nuxt i18n handle it
+// The i18n module will automatically handle cookies and locale persistence
 </script>
 
 <template>

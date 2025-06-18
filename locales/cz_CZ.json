@@ -26,6 +26,22 @@
         "company": "Společnost",
         "czechia": "Česká republika",
         "showContacts": "Zobrazit kontakty",
-        "hideContacts": "Skrýt kontakty"
+        "hideContacts": "Skrýt kontakty",
+        "loading": "Načítání...",
+        "email": "E-mail",
+        "readMore": "Číst více",
+        "close": "Zavřít"
+    },
+    "navigation": {
+        "home": "Domů",
+        "about": "O mně",
+        "resume": "Životopis",
+        "portfolio": "Portfolio",
+        "blog": "Blog",
+        "contact": "Kontakt"
+    },
+    "hero": {
+        "welcome": "Vítejte v mém portfoliu",
+        "subtitle": "Senior Software Engineer & API Developer"
     }
 }

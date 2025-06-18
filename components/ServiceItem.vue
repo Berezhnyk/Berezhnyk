@@ -1,12 +1,12 @@
 <script setup>
-import { useI18n } from 'vue-i18n'
+// Use Nuxt i18n composable
 import { Icon } from '@iconify/vue';
 
 const props = defineProps({
   service: Object,
 })
 
-const { locale } = useI18n({ useScope: 'global' })
+const { locale } = useI18n()
 </script>
 
 <template>

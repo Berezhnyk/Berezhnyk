@@ -1,11 +1,11 @@
 <script setup>
-import { useI18n } from 'vue-i18n'
+// Use Nuxt i18n composable
 
 const props = defineProps({
   about: Object,
 })
 
-const { locale } = useI18n({ useScope: 'global' })
+const { locale } = useI18n()
 </script>
 
 <template>

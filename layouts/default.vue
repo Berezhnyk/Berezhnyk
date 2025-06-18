@@ -1,6 +1,6 @@
 <script setup>
-import { useI18n } from 'vue-i18n'
-const { locale } = useI18n({ useScope: 'global' })
+// Use Nuxt i18n composable
+const { locale } = useI18n()
 
 const ogImageUrl = `https://avatars.githubusercontent.com/u/6099167?s=400&u=4a8d3ab9b1b207b8c2c2b812a87facbb7dee87e4&v=4&t=${Date.now()}`
 

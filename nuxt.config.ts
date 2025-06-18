@@ -1,19 +1,28 @@
 export default defineNuxtConfig({
+  compatibilityDate: '2025-06-18',
   modules: [
     '@vueuse/nuxt',
     '@pinia/nuxt',
     '@nuxtjs/color-mode',
     '@nuxtjs/tailwindcss',
-    '@intlify/nuxt3',
+    '@nuxtjs/i18n',
     '@nuxt/image',
   ],
-  intlify: {
-    localeDir: 'locales',
-    vueI18n: {
-      locale: 'en',
-      fallbackLocale: 'en',
-      availableLocales: ['en', 'uk_UA', 'cz_CZ'],
-    },
+  i18n: {
+    locales: [
+      { code: 'en', file: 'en.json', name: 'English' },
+      { code: 'uk_UA', file: 'uk_UA.json', name: 'Українська' },
+      { code: 'cz_CZ', file: 'cz_CZ.json', name: 'Čeština' }
+    ],
+    lazy: true,
+    langDir: './locales/',
+    defaultLocale: 'en',
+    strategy: 'no_prefix',
+    detectBrowserLanguage: false,
+    restructureDir: false,
+    bundle: {
+      optimizeTranslationDirective: false
+    }
   },
   runtimeConfig: {
     public: {
@@ -24,11 +33,10 @@ export default defineNuxtConfig({
     }
   },
   experimental: {
-    reactivityTransform: true,
-    inlineSSRStyles: false, // Better for caching
     payloadExtraction: false, // Better for static sites
   },
-  plugins: [{ src: '~/plugins/vercel.ts', mode: 'client' }
+  plugins: [
+    { src: '~/plugins/vercel.ts', mode: 'client' }
   ],
   colorMode: {
     classSuffix: '',
@@ -40,6 +48,8 @@ export default defineNuxtConfig({
         // Workaround for netlify issue
         // https://github.com/nuxt/framework/issues/6204
         config.build.rollupOptions.output.inlineDynamicImports = true
+        // Clear manualChunks when inlineDynamicImports is true
+        delete config.build.rollupOptions.output.manualChunks
       }
     },
   },
@@ -51,14 +61,11 @@ export default defineNuxtConfig({
     cssPath: '~/assets/css/tailwind.css',
     configPath: 'tailwind.config.js',
     exposeConfig: true,
-    injectPosition: 0,
     viewer: true,
   },
   nitro: {
     prerender: {
       routes: [
-        '/sitemap.xml', 
-        '/robots.txt',
         '/api/testimonials',
         '/api/services', 
         '/api/about'
@@ -74,14 +81,24 @@ export default defineNuxtConfig({
   vite: {
     build: {
       rollupOptions: {
+        external: ['fsevents'],
         output: {
-          manualChunks: {
-            'vue-vendor': ['vue', 'vue-router'],
-            'ui-vendor': ['@iconify/vue'],
-            'i18n-vendor': ['vue-i18n', '@intlify/nuxt3'],
-          }
+          // Only apply manual chunks for client build
+          ...(process.env.NODE_ENV === 'production' && {
+            manualChunks: {
+              'vue-vendor': ['vue', 'vue-router'],
+              'ui-vendor': ['@iconify/vue'],
+              'i18n-vendor': ['vue-i18n'],
+            }
+          })
         }
       }
+    },
+    optimizeDeps: {
+      exclude: ['fsevents']
+    },
+    define: {
+      global: 'globalThis'
     }
   },
   app: {

@@ -6,10 +6,10 @@
         "resume": "Resume",
         "portfolio": "Portfolio",
         "blog": "Blog",
-        "github": "Github"
+        "github": "GitHub"
     },
     "contact": {
-        "github": "Github",
+        "github": "GitHub",
         "linkedin": "LinkedIn",
         "location": "Location"
     },
@@ -26,6 +26,22 @@
         "company": "Company",
         "czechia": "Czechia",
         "showContacts": "Show Contacts",
-        "hideContacts": "Hide Contacts"
+        "hideContacts": "Hide Contacts",
+        "loading": "Loading...",
+        "email": "Email",
+        "readMore": "Read More",
+        "close": "Close"
+    },
+    "navigation": {
+        "home": "Home",
+        "about": "About",
+        "resume": "Resume",
+        "portfolio": "Portfolio",
+        "blog": "Blog",
+        "contact": "Contact"
+    },
+    "hero": {
+        "welcome": "Welcome to my portfolio",
+        "subtitle": "Senior Software Engineer & API Developer"
     }
 }

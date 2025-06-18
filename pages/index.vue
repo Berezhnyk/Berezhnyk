@@ -1,15 +1,8 @@
 <script setup>
-import { useI18n } from 'vue-i18n'
 import { Icon } from '@iconify/vue';
 
 useHead({
 })
-
-onMounted(() => {
-  useLocaleStore()
-})
-
-const { locale } = useI18n({ useScope: 'global' })
 
 /* Testimonials */
 const { data: testimonials } = await useFetch('/api/testimonials')
@@ -53,7 +46,7 @@ const { data: about } = await useFetch('/api/about')
     </section>
 
     <!-- service -->
-
+     
     <section class="service">
       <br />
       <ul class="service-list">

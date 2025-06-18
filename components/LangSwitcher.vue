@@ -1,24 +1,29 @@
 <script setup>
-import { useI18n } from 'vue-i18n'
-import { useLocaleStore } from '../composables/locale'
-const { locale } = useI18n({ useScope: 'global' })
-
-const cookieLocale = useLocaleStore()
+// Use locale for flag display and setLocale for language switching
+const { locale, setLocale } = useI18n()
 
 // Define available locales
 const availableLocales = ['en', 'uk_UA', 'cz_CZ']
 
-onMounted(() => {
-  useLocaleStore()
-})
-
-function changeLang() {
+async function changeLang() {
   const currentIndex = availableLocales.indexOf(locale.value)
   const nextIndex = (currentIndex + 1) % availableLocales.length
   const nextLocale = availableLocales[nextIndex]
   
-  cookieLocale.setLocale(nextLocale)
-  locale.value = nextLocale
+  try {
+    // Set the locale without navigation
+    await setLocale(nextLocale)
+    
+    // Manually set cookie for persistence
+    const locale_cookie = useCookie('locale', {
+      default: () => 'en',
+      maxAge: 60 * 60 * 24 * 365, // 1 year
+    })
+    locale_cookie.value = nextLocale
+    
+  } catch (error) {
+    console.warn('Error switching locale:', error)
+  }
 }
 </script>
 
