@@ -1,26 +1,19 @@
 <script setup>
-// Use locale for flag display and setLocale for language switching
+// Use Nuxt i18n with proper locale persistence
 const { locale, setLocale } = useI18n()
 
 // Define available locales
 const availableLocales = ['en', 'uk_UA', 'cz_CZ']
 
 async function changeLang() {
-  const currentIndex = availableLocales.indexOf(locale.value)
+  const currentLocale = locale.value || 'en'
+  const currentIndex = availableLocales.indexOf(currentLocale)
   const nextIndex = (currentIndex + 1) % availableLocales.length
   const nextLocale = availableLocales[nextIndex]
   
   try {
-    // Set the locale without navigation
+    // Use Nuxt i18n's setLocale which handles cookie persistence automatically
     await setLocale(nextLocale)
-    
-    // Manually set cookie for persistence
-    const locale_cookie = useCookie('locale', {
-      default: () => 'en',
-      maxAge: 60 * 60 * 24 * 365, // 1 year
-    })
-    locale_cookie.value = nextLocale
-    
   } catch (error) {
     console.warn('Error switching locale:', error)
   }
@@ -33,8 +26,8 @@ async function changeLang() {
     <div class="absolute inset-0 glass-lang-bg opacity-30"></div>
     
     <NuxtImg 
-      :src="`/flags/${locale}.png`" 
-      :alt="`${locale} flag`"
+      :src="`/flags/${locale || 'en'}.png`" 
+      :alt="`${locale || 'en'} flag`"
       class="h-6 relative z-10 transition-transform duration-300 hover:scale-110"
       width="24"
       height="24"

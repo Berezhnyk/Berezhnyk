@@ -1,6 +1,6 @@
 <script setup>
-// Remove the custom locale handling - let Nuxt i18n handle it
-// The i18n module will automatically handle cookies and locale persistence
+// Nuxt i18n will automatically handle locale persistence and initialization
+// No custom locale handling needed here
 </script>
 
 <template>

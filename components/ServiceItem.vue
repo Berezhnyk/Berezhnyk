@@ -7,6 +7,8 @@ const props = defineProps({
 })
 
 const { locale } = useI18n()
+// Ensure locale is never undefined
+const safeLocale = computed(() => locale.value || 'en')
 </script>
 
 <template>
@@ -31,7 +33,7 @@ const { locale } = useI18n()
       </h4>
 
       <p class="service-item-text">
-        {{ service.description?.[locale] || service.description?.en }}
+        {{ service.description?.[safeLocale] || service.description?.en }}
       </p>
     </div>
   </li>

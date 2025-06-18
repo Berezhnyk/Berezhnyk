@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cookie Test</title>
+</head>
+<body>
+    <h1>Cookie Test</h1>
+    <p>Current locale cookie: <span id="cookie-value"></span></p>
+    <button onclick="setCookie('locale', 'uk_UA')">Set Ukrainian</button>
+    <button onclick="setCookie('locale', 'cz_CZ')">Set Czech</button>
+    <button onclick="setCookie('locale', 'en')">Set English</button>
+    <button onclick="location.reload()">Refresh</button>
+    
+    <script>
+        function setCookie(name, value) {
+            document.cookie = name + "=" + value + "; path=/; max-age=" + (60 * 60 * 24 * 365);
+            document.getElementById('cookie-value').textContent = value;
+        }
+        
+        function getCookie(name) {
+            const value = "; " + document.cookie;
+            const parts = value.split("; " + name + "=");
+            if (parts.length === 2) return parts.pop().split(";").shift();
+            return null;
+        }
+        
+        document.getElementById('cookie-value').textContent = getCookie('locale') || 'not set';
+    </script>
+</body>
+</html>

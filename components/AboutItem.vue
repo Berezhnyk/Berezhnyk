@@ -6,13 +6,15 @@ const props = defineProps({
 })
 
 const { locale } = useI18n()
+// Ensure locale is never undefined
+const safeLocale = computed(() => locale.value || 'en')
 </script>
 
 <template>
   <li class="about-item glass-panel relative overflow-hidden">
     <div class="about-content-box relative z-10">
       <p class="about-item-text">
-        {{ about.description?.[locale] || about.description?.en }}
+        {{ about.description?.[safeLocale] || about.description?.en }}
       </p>
     </div>
   </li>

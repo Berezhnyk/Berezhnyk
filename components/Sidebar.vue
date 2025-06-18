@@ -10,9 +10,9 @@ function toggleMenu() {
   <aside class="sidebar relative overflow-hidden" :class="{ active: isOpen }">
     <div class="top-actions-row">
       <div class="top-left-actions">
-        <NuxtLink to="mailto:ivan@berezhnyk.net" class="social-link glass-social-link" target="_blank">
+        <a href="mailto:ivan@berezhnyk.net" class="social-link glass-social-link">
           <Icon name="mail-outline" :size="18" />
-        </NuxtLink>
+        </a>
         <LangSwitcher />
       </div>
       

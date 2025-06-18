@@ -4,6 +4,11 @@ import { Icon } from '@iconify/vue';
 useHead({
 })
 
+/* Locale */
+const { locale } = useI18n()
+// Ensure locale is never undefined
+const safeLocale = computed(() => locale.value || 'en')
+
 /* Testimonials */
 const { data: testimonials } = await useFetch('/api/testimonials')
 
@@ -46,11 +51,29 @@ const { data: about } = await useFetch('/api/about')
     </section>
 
     <!-- service -->
-     
+
     <section class="service">
       <br />
       <ul class="service-list">
         <ServiceItem v-for="service in services" :key="service.id" :service="service" />
+      </ul>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+      <h3 class="h3 section-title">{{ $t('sections.testimonials') }}</h3>
+      <ul class="testimonials-list">
+        <li v-for="testimonial in testimonials" :key="testimonial.id" class="testimonials-item">
+          <div class="testimonial-content">
+            <blockquote class="testimonial-text">
+              {{ testimonial.content?.[safeLocale] || testimonial.content?.en }}
+            </blockquote>
+            <cite class="testimonial-author">{{ testimonial.title }}</cite>
+            <button @click="showTestimonial(testimonial.id)" class="testimonial-read-more">
+              {{ $t('common.readMore') }}
+            </button>
+          </div>
+        </li>
       </ul>
     </section>
 
@@ -91,7 +114,7 @@ const { data: about } = await useFetch('/api/about')
             height="24"
             loading="lazy"
           />
-          <p class="text-justify text-gray-400 text-sm md:text-md" v-html="testimonialItem.content?.[locale] || testimonialItem.content?.en" />
+          <p class="text-justify text-gray-400 text-sm md:text-md" v-html="testimonialItem.content?.[safeLocale] || testimonialItem.content?.en" />
         </div>
         <div class="mt-2 flex justify-end text-sm text-gray-600 italic">
           Company Co.

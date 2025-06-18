@@ -1,4 +1,4 @@
 export default defineNuxtPlugin(() => {
-  // This plugin will run on client-side to initialize locale from cookie
-  // The actual locale switching will be handled in composables/locale.js
+  // Nuxt i18n will automatically handle locale initialization from cookies
+  // This plugin is kept for any future client-side i18n customizations
 })
