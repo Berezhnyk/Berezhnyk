@@ -4,3 +4,27 @@ dist
 .output
 .nuxt
 .env
+
+# Package manager lock files (keeping pnpm-lock.yaml)
+package-lock.json
+yarn.lock
+
+# Platform-specific configs (removed)
+netlify.toml
+staticwebapp.config.json
+.stackblitzrc
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo

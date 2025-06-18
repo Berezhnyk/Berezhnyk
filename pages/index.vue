@@ -1,5 +1,6 @@
 <script setup>
 import { Icon } from '@iconify/vue';
+import { aboutData } from '~/data/about.js';
 
 useHead({
 })
@@ -17,10 +18,15 @@ const { data: services } = await useFetch('/api/services', {
 })
 
 /* About */
-const { data: about } = await useFetch('/api/about', {
+const { data: about, error: aboutError } = await useFetch('/api/about', {
   key: 'about',
   server: true,
-  default: () => []
+  default: () => aboutData,
+  // Gracefully handle API failures in production
+  onResponseError({ response }) {
+    console.warn('Failed to fetch about data from API, using fallback data')
+    return aboutData
+  }
 })
 </script>
 
@@ -34,7 +40,7 @@ const { data: about } = await useFetch('/api/about', {
 
     <section class="about-text">
       <ul class="about-list">
-        <AboutItem v-for="about in about" :key="about.id" :about="about" />
+        <AboutItem v-for="aboutItem in about" :key="aboutItem.id" :about="aboutItem" />
       </ul>
     </section>
 

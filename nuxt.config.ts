@@ -69,16 +69,35 @@ export default defineNuxtConfig({
     viewer: true,
   },
   nitro: {
+    preset: 'vercel',
     prerender: {
       routes: [
+        '/',
+        '/resume',
+        '/github', 
+        '/apps',
+        '/apps/structured-viewer-extension',
         '/api/services', 
         '/api/about'
       ]
     },
     compressPublicAssets: true,
-    // Cache API routes
+    // Vercel-optimized routing rules
     routeRules: {
-      '/api/**': { headers: { 'cache-control': 's-maxage=3600' } },
+      // API routes - prerender and cache
+      '/api/**': { 
+        headers: { 'cache-control': 's-maxage=3600' },
+        prerender: true 
+      },
+      // Static pages - prerender with ISR fallback
+      '/': { prerender: true, isr: true },
+      '/resume': { prerender: true, isr: true },
+      '/github': { prerender: true, isr: true },
+      '/apps/**': { prerender: true, isr: true },
+      // Assets - long cache
+      '/images/**': { headers: { 'cache-control': 'max-age=31536000' } },
+      '/fonts/**': { headers: { 'cache-control': 'max-age=31536000' } },
+      '/_nuxt/**': { headers: { 'cache-control': 'max-age=31536000' } },
     }
   },
   // Add performance optimizations

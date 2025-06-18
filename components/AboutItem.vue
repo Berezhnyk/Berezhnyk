@@ -14,7 +14,7 @@ const safeLocale = computed(() => locale.value || 'en')
   <li class="about-item glass-panel relative overflow-hidden">
     <div class="about-content-box relative z-10">
       <p class="about-item-text">
-        {{ about.description?.[safeLocale] || about.description?.en }}
+        {{ about?.description?.[safeLocale] || about?.description?.en || '' }}
       </p>
     </div>
   </li>
