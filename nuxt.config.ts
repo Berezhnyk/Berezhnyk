@@ -71,7 +71,6 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       routes: [
-        '/api/testimonials',
         '/api/services', 
         '/api/about'
       ]

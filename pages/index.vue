@@ -9,26 +9,6 @@ const { locale } = useI18n()
 // Ensure locale is never undefined
 const safeLocale = computed(() => locale.value || 'en')
 
-/* Testimonials */
-const { data: testimonials } = await useFetch('/api/testimonials')
-
-const testimonialItem = ref({})
-const activeModal = ref(false)
-const activeOverlay = ref(false)
-
-function showTestimonial(id) {
-  testimonialItem.value = testimonials.value.find(item => item.id === id)
-  activeModal.value = true
-  activeOverlay.value = true
-}
-
-function closeTestimonaial() {
-  testimonialItem.value = {}
-  activeModal.value = false
-  activeOverlay.value = false
-}
-/* Testimonials */
-
 /* Services */
 const { data: services } = await useFetch('/api/services')
 
@@ -58,68 +38,5 @@ const { data: about } = await useFetch('/api/about')
         <ServiceItem v-for="service in services" :key="service.id" :service="service" />
       </ul>
     </section>
-
-    <!-- Testimonials -->
-    <section class="testimonials">
-      <h3 class="h3 section-title">{{ $t('sections.testimonials') }}</h3>
-      <ul class="testimonials-list">
-        <li v-for="testimonial in testimonials" :key="testimonial.id" class="testimonials-item">
-          <div class="testimonial-content">
-            <blockquote class="testimonial-text">
-              {{ testimonial.content?.[safeLocale] || testimonial.content?.en }}
-            </blockquote>
-            <cite class="testimonial-author">{{ testimonial.title }}</cite>
-            <button @click="showTestimonial(testimonial.id)" class="testimonial-read-more">
-              {{ $t('common.readMore') }}
-            </button>
-          </div>
-        </li>
-      </ul>
-    </section>
-
-    <div class="modal-container" :class="{ active: activeModal }">
-      <div v-show="activeModal" class="overlay" :class="{ active: activeOverlay }" />
-
-      <section class="testimonials-modal">
-        <button class="modal-close-btn" @click="closeTestimonaial">
-          <Icon name="close-outline" :size="20" />
-        </button>
-
-        <div class="flex gap-5 mb-5 justify-start items-center">
-          <div class="modal-avatar-box">
-            <NuxtImg 
-              :src="testimonialItem.image" 
-              alt="Daniel lewis" 
-              width="80" 
-              height="80"
-              format="webp"
-              loading="lazy"
-            />
-          </div>
-
-          <div class="modal-content">
-            <h4 class="h3 modal-title">
-              {{ testimonialItem.title }}
-            </h4>
-            <time datetime="2021-06-14">14 June, 2021</time>
-          </div>
-        </div>
-
-        <div class="flex gap-5 items-start">
-          <NuxtImg 
-            class="my-auto hidden md:block" 
-            src="/images/icon-quote.svg" 
-            alt="quote icon"
-            width="24"
-            height="24"
-            loading="lazy"
-          />
-          <p class="text-justify text-gray-400 text-sm md:text-md" v-html="testimonialItem.content?.[safeLocale] || testimonialItem.content?.en" />
-        </div>
-        <div class="mt-2 flex justify-end text-sm text-gray-600 italic">
-          Company Co.
-        </div>
-      </section>
-    </div>
   </article>
 </template>

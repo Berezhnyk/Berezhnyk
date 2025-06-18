@@ -17,8 +17,7 @@
         "experience": "Experience",
         "education": "Education",
         "skills": "Skills",
-        "services": "Services",
-        "testimonials": "Testimonials"
+        "services": "Services"
     },
     "common": {
         "remote": "Remote",
