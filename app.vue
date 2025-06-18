@@ -1,6 +1,5 @@
 <script setup>
-// Nuxt i18n will automatically handle locale persistence and initialization
-// No custom locale handling needed here
+import { Analytics } from '@vercel/analytics/nuxt'
 </script>
 
 <template>
@@ -11,6 +10,7 @@
     <NuxtLayout>
       <NuxtPage transition />
     </NuxtLayout>
+    <Analytics/>
   </div>
 </template>
 
