@@ -22,3 +22,22 @@ export const useSafeReactive = (getter, fallback = null) => {
     return getter()
   })
 }
+
+// Utility to prevent hydration mismatches with conditional rendering
+export const useHydrationSafe = (clientValue, serverValue = null) => {
+  const isHydrated = ref(false)
+  
+  onMounted(() => {
+    // Use nextTick to ensure DOM is fully hydrated
+    nextTick(() => {
+      isHydrated.value = true
+    })
+  })
+  
+  return computed(() => {
+    if (!isHydrated.value) {
+      return serverValue
+    }
+    return clientValue.value
+  })
+}

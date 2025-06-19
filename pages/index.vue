@@ -10,6 +10,13 @@ const { locale } = useI18n()
 // Ensure locale is never undefined
 const safeLocale = computed(() => locale.value || 'en')
 
+// Debug locale changes in development
+if (process.dev) {
+  watch(locale, (newLocale, oldLocale) => {
+    console.log('Locale changed:', { from: oldLocale, to: newLocale })
+  })
+}
+
 /* Services */
 const { data: services } = await useFetch('/api/services', {
   key: 'services',

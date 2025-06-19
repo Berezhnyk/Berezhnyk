@@ -1,20 +1,20 @@
 <script setup>
-// Use Nuxt i18n composable
-
 const props = defineProps({
   about: Object,
 })
 
-const { locale } = useI18n()
-// Ensure locale is never undefined
-const safeLocale = computed(() => locale.value || 'en')
+// Use the locale sync composable to prevent hydration mismatches
+const { getLocalizedContent } = useLocaleSync()
+
+// Get the localized description with automatic fallback
+const description = getLocalizedContent(props.about?.description)
 </script>
 
 <template>
   <li class="about-item glass-panel relative overflow-hidden">
     <div class="about-content-box relative z-10">
       <p class="about-item-text">
-        {{ about?.description?.[safeLocale] || about?.description?.en || '' }}
+        {{ description }}
       </p>
     </div>
   </li>

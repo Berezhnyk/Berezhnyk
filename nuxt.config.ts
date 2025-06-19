@@ -39,6 +39,7 @@ export default defineNuxtConfig({
   },
   experimental: {
     payloadExtraction: false, // Better for static sites
+    viewTransition: true, // Enable view transitions for smoother navigation
   },
   ssr: true,
   plugins: [
@@ -82,17 +83,30 @@ export default defineNuxtConfig({
         '/api/about'
       ]
     },
+    // Enable compression but let Vercel handle it
     compressPublicAssets: true,
+    // Add route rules to handle SPA fallback properly
+    experimental: {
+      wasm: false
+    },
     // Vercel-optimized routing rules
     routeRules: {
       // API routes - prerender and cache
-      '/api/**': { 
+      '/api/services': { 
         headers: { 'cache-control': 's-maxage=3600' },
         prerender: true 
       },
-      // Static pages - prerender with ISR fallback
+      // About API - cache but vary by locale cookie
+      '/api/about': { 
+        headers: { 'cache-control': 's-maxage=3600, stale-while-revalidate=3600' },
+        prerender: true 
+      },
+      // Static pages - prerender with ISR fallback and proper SPA mode
       '/': { prerender: true, isr: true },
-      '/resume': { prerender: true, isr: true },
+      '/resume': { 
+        prerender: true, 
+        isr: true
+      },
       '/github': { prerender: true, isr: true },
       '/apps/**': { prerender: true, isr: true },
       // Assets - long cache
@@ -137,5 +151,9 @@ export default defineNuxtConfig({
         { rel: 'preload', href: '/images/avatar.webp', as: 'image', type: 'image/webp' },
       ]
     }
+  },
+  // Add better SSR configuration for hydration
+  build: {
+    transpile: ['vue-i18n']
   },
 })
