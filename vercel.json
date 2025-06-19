@@ -1,9 +1,4 @@
 {
-  "functions": {
-    "server/index.mjs": {
-      "maxDuration": 10
-    }
-  },
   "trailingSlash": false,
   "cleanUrls": true,
   "redirects": [
