@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxtjs/i18n',
     '@nuxt/image',
+    '@zadigetvoltaire/nuxt-gtm',
   ],
   i18n: {
     locales: [
@@ -31,6 +32,17 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
+      gtm: {
+        id: 'GTM-MKWPHLHM',
+        defer: false,
+        compatibility: false,
+        enabled: true,
+        debug: process.env.NODE_ENV === 'development',
+        loadScript: true,
+        enableRouterSync: true,
+        ignoredViews: [],
+        trackOnNextTick: false,
+      },
       // Enable performance monitoring
       gtag: {
         id: process.env.GTAG_ID

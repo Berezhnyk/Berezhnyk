@@ -27,6 +27,7 @@
     "@nuxtjs/i18n": "^9.5.5",
     "@vercel/analytics": "^1.0.1",
     "@vercel/speed-insights": "^1.2.0",
+    "@zadigetvoltaire/nuxt-gtm": "^0.0.13",
     "axios": "^1.4.0",
     "ipx": "^3.0.3"
   },
