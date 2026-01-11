@@ -5,13 +5,19 @@ useHead({
   title: 'About',
 })
 
-/* Data fetching - useFetch works on both SSR and client navigation */
-const { data: about } = await useFetch('/api/about', {
+/* Data fetching */
+const { data: about, refresh: refreshAbout } = await useFetch('/api/about', {
   default: () => aboutData
 })
 
-const { data: services } = await useFetch('/api/services', {
+const { data: services, refresh: refreshServices } = await useFetch('/api/services', {
   default: () => []
+})
+
+/* Force refresh on client-side navigation */
+onMounted(() => {
+  refreshAbout()
+  refreshServices()
 })
 </script>
 
