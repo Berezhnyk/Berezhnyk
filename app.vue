@@ -8,10 +8,7 @@ import { Analytics } from '@vercel/analytics/nuxt'
     <div class="global-particle-bg"></div>
     
     <NuxtLayout>
-      <NuxtPage :transition="{
-        name: 'page',
-        mode: 'out-in'
-      }" />
+      <NuxtPage />
     </NuxtLayout>
     <Analytics/>
   </div>
