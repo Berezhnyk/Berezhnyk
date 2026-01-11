@@ -17,7 +17,8 @@
         "experience": "Досвід",
         "education": "Освіта",
         "skills": "Навички",
-        "services": "Послуги"
+        "services": "Послуги",
+        "projects": "Власні проєкти"
     },
     "common": {
         "remote": "Віддалено",

@@ -17,7 +17,8 @@
         "experience": "Zkušenosti",
         "education": "Vzdělání",
         "skills": "Dovednosti",
-        "services": "Služby"
+        "services": "Služby",
+        "projects": "Osobní projekty"
     },
     "common": {
         "remote": "Na dálku",

@@ -1,38 +1,16 @@
 <script setup>
-import { Icon } from '@iconify/vue';
 import { aboutData } from '~/data/about.js';
+import { servicesData } from '~/data/services.js';
+import { projectsData } from '~/data/projects.js';
 
 useHead({
+  title: 'About',
 })
 
-/* Locale */
-const { locale } = useI18n()
-// Ensure locale is never undefined
-const safeLocale = computed(() => locale.value || 'en')
-
-// Debug locale changes in development
-if (process.dev) {
-  watch(locale, (newLocale, oldLocale) => {
-    console.log('Locale changed:', { from: oldLocale, to: newLocale })
-  })
-}
-
-/* Services */
-const { data: services } = await useFetch('/api/services', {
-  key: 'services',
-  default: () => []
-})
-
-/* About */
-const { data: about, error: aboutError } = await useFetch('/api/about', {
-  key: 'about',
-  default: () => aboutData,
-  // Gracefully handle API failures in production
-  onResponseError({ response }) {
-    console.warn('Failed to fetch about data from API, using fallback data')
-    return aboutData
-  }
-})
+/* Static data - no API calls needed */
+const about = aboutData
+const services = servicesData
+const projects = projectsData
 </script>
 
 <template>
@@ -49,12 +27,21 @@ const { data: about, error: aboutError } = await useFetch('/api/about', {
       </ul>
     </section>
 
-    <!-- service -->
+    <!-- services -->
 
     <section class="service">
-      <br />
+      <h3 class="h3 service-title">{{ $t('sections.skills') }}</h3>
       <ul class="service-list">
         <ServiceItem v-for="service in services" :key="service.id" :service="service" />
+      </ul>
+    </section>
+
+    <!-- pet projects -->
+
+    <section class="service">
+      <h3 class="h3 service-title">{{ $t('sections.projects') }}</h3>
+      <ul class="service-list">
+        <ProjectItem v-for="project in projects" :key="project.id" :project="project" />
       </ul>
     </section>
   </article>

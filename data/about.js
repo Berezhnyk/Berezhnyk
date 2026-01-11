@@ -2,9 +2,9 @@ export const aboutData = [
   {
     id: 1,
     description: {
-      en: `For the past 9 years, I've transformed customer requirements into valuable code. My primary expertise lies in .Net Core and MySQL, predominantly within the trading sector. I'm also acquainted with contemporary technologies like Docker, AWS, and Kubernetes. I possess substantial experience with Angular, spanning roughly 2 years, and I've been advancing my skills in Vue for about a year now.`,
-      uk_UA: 'Протягом останніх 9 років я перетворював вимоги клієнтів на код, який приносив цінність продукту. Моя основна експертиза полягає в .Net Core та MySQL, переважно в секторі торгівлі. Я також знайомий з сучасними технологіями, такими як Docker, AWS та Kubernetes. Маю значний досвід роботи з Angular, приблизно 2 роки, зараз я активно вивчаю Vue.',
-      cz_CZ: 'Posledních 9 let jsem přetvářel požadavky zákazníků na cenný kód. Moje hlavní odborné znalosti spočívají v .Net Core a MySQL, převážně v obchodním sektoru. Jsem také obeznámen s moderními technologiemi, jako jsou Docker, AWS a Kubernetes. Mám značné zkušenosti s Angular, které trvají přibližně 2 roky, a poslední rok se aktivně zdokonaluji ve Vue.',
+      en: `Senior Software Engineer with over 10 years of experience transforming complex customer requirements into high-value software solutions. I specialize in .Net Core, MySQL, and Vue, with a strong background in the trading sector. I'm proficient with modern cloud and DevOps technologies including Docker, AWS, Azure, and Kubernetes. I leverage AI-powered tools like Claude Code to accelerate development and deliver quality results.`,
+      uk_UA: 'Старший інженер-програміст з понад 10-річним досвідом перетворення складних вимог клієнтів на високоякісні програмні рішення. Спеціалізуюся на .Net Core, MySQL та Vue, маю значний досвід у секторі торгівлі. Володію сучасними хмарними та DevOps технологіями, включаючи Docker, AWS, Azure та Kubernetes. Використовую AI-інструменти, такі як Claude Code, для прискорення розробки та досягнення якісних результатів.',
+      cz_CZ: 'Senior Software Engineer s více než 10 lety zkušeností s přetvářením složitých požadavků zákazníků na vysoce hodnotná softwarová řešení. Specializuji se na .Net Core, MySQL a Vue se silným zázemím v obchodním sektoru. Ovládám moderní cloudové a DevOps technologie včetně Docker, AWS, Azure a Kubernetes. Využívám AI nástroje jako Claude Code k urychlení vývoje a dosažení kvalitních výsledků.',
     },
   },
 ]

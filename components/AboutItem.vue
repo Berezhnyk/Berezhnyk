@@ -3,11 +3,16 @@ const props = defineProps({
   about: Object,
 })
 
-// Use the locale sync composable to prevent hydration mismatches
-const { getLocalizedContent } = useLocaleSync()
+// Use i18n locale with safe fallback
+const { locale } = useI18n()
+const safeLocale = computed(() => locale.value || 'en')
 
-// Get the localized description with automatic fallback
-const description = getLocalizedContent(props.about?.description)
+// Computed that reactively watches props.about changes
+const description = computed(() => {
+  const content = props.about?.description
+  if (!content) return ''
+  return content[safeLocale.value] || content['en'] || ''
+})
 </script>
 
 <template>
