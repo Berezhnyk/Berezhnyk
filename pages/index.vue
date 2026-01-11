@@ -1,24 +1,14 @@
 <script setup>
 import { aboutData } from '~/data/about.js';
+import { servicesData } from '~/data/services.js';
 
 useHead({
   title: 'About',
 })
 
-/* Data fetching */
-const { data: about, refresh: refreshAbout } = await useFetch('/api/about', {
-  default: () => aboutData
-})
-
-const { data: services, refresh: refreshServices } = await useFetch('/api/services', {
-  default: () => []
-})
-
-/* Force refresh on client-side navigation */
-onMounted(() => {
-  refreshAbout()
-  refreshServices()
-})
+/* Static data - no API calls needed */
+const about = aboutData
+const services = servicesData
 </script>
 
 <template>
