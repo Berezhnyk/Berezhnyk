@@ -20,14 +20,12 @@ if (process.dev) {
 /* Services */
 const { data: services } = await useFetch('/api/services', {
   key: 'services',
-  server: true,
   default: () => []
 })
 
 /* About */
 const { data: about, error: aboutError } = await useFetch('/api/about', {
   key: 'about',
-  server: true,
   default: () => aboutData,
   // Gracefully handle API failures in production
   onResponseError({ response }) {
