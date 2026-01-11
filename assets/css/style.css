@@ -227,13 +227,12 @@ article {
   display: none !important;
 }
 
-article { display: none; }
-
-article.active {
+/* Article is always visible - Vue/Nuxt handles page transitions */
+article {
   display: block;
-  animation: fade 0.5s ease backwards;
 }
 
+/* Fade animation for page content - triggered via Vue transitions */
 @keyframes fade {
   0% { opacity: 0; }
   100% { opacity: 1; }
