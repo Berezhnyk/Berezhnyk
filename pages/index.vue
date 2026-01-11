@@ -1,27 +1,15 @@
 <script setup>
-import { Icon } from '@iconify/vue';
 import { aboutData } from '~/data/about.js';
 
 useHead({
+  title: 'About',
 })
-
-/* Locale */
-const { locale } = useI18n()
-// Ensure locale is never undefined
-const safeLocale = computed(() => locale.value || 'en')
-
-// Debug locale changes in development
-if (process.dev) {
-  watch(locale, (newLocale, oldLocale) => {
-    console.log('Locale changed:', { from: oldLocale, to: newLocale })
-  })
-}
 
 /* Data - initialize with fallback data for immediate display */
 const about = ref(aboutData)
 const services = ref([])
 
-/* Fetch fresh data on mount (works for both SSR and client-side navigation) */
+/* Fetch fresh data on mount */
 onMounted(async () => {
   try {
     const [aboutRes, servicesRes] = await Promise.all([
