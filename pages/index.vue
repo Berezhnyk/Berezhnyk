@@ -5,22 +5,13 @@ useHead({
   title: 'About',
 })
 
-/* Data - initialize with fallback data for immediate display */
-const about = ref(aboutData)
-const services = ref([])
+/* Data fetching - useFetch works on both SSR and client navigation */
+const { data: about } = await useFetch('/api/about', {
+  default: () => aboutData
+})
 
-/* Fetch fresh data on mount */
-onMounted(async () => {
-  try {
-    const [aboutRes, servicesRes] = await Promise.all([
-      $fetch('/api/about'),
-      $fetch('/api/services')
-    ])
-    if (aboutRes) about.value = aboutRes
-    if (servicesRes) services.value = servicesRes
-  } catch (error) {
-    console.warn('Failed to fetch data, using fallback:', error)
-  }
+const { data: services } = await useFetch('/api/services', {
+  default: () => []
 })
 </script>
 
