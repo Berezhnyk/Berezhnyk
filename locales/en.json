@@ -17,7 +17,8 @@
         "experience": "Experience",
         "education": "Education",
         "skills": "Skills",
-        "services": "Services"
+        "services": "Services",
+        "projects": "Pet Projects"
     },
     "common": {
         "remote": "Remote",

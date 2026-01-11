@@ -1,6 +1,17 @@
 export const servicesData = [
   {
     id: 0,
+    title: 'Claude Code',
+    description: {
+      en: 'I use Claude Code, an AI-powered coding assistant by Anthropic, to accelerate development, improve code quality, and streamline complex tasks.',
+      uk_UA: 'Я використовую Claude Code, AI-асистента для програмування від Anthropic, щоб прискорити розробку, покращити якість коду та оптимізувати складні завдання.',
+      cz_CZ: 'Používám Claude Code, AI asistenta pro programování od Anthropic, k urychlení vývoje, zlepšení kvality kódu a zjednodušení složitých úkolů.',
+    },
+    icon: 'simple-icons:anthropic',
+    image: null,
+  },
+  {
+    id: 1,
     title: 'Vue',
     description: {
       en: 'I use Vue, a progressive JavaScript framework, to create interactive and dynamic web interfaces.',
@@ -11,7 +22,7 @@ export const servicesData = [
     image: null,
   },
   {
-    id: 1,
+    id: 2,
     title: '.Net Core',
     description: {
       en: 'I use .Net Core, an open-source framework by Microsoft, for crafting modern, cross-platform applications predominantly with C#.',
@@ -22,7 +33,7 @@ export const servicesData = [
     image: null,
   },
   {
-    id: 2,
+    id: 3,
     title: 'Azure',
     description: {
       en: 'I utilize Azure, Microsoft\'s cloud computing service, to deploy, manage, and scale applications on a global scale.',

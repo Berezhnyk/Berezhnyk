@@ -1,6 +1,7 @@
 <script setup>
 import { aboutData } from '~/data/about.js';
 import { servicesData } from '~/data/services.js';
+import { projectsData } from '~/data/projects.js';
 
 useHead({
   title: 'About',
@@ -9,6 +10,7 @@ useHead({
 /* Static data - no API calls needed */
 const about = aboutData
 const services = servicesData
+const projects = projectsData
 </script>
 
 <template>
@@ -25,12 +27,21 @@ const services = servicesData
       </ul>
     </section>
 
-    <!-- service -->
+    <!-- services -->
 
     <section class="service">
-      <br />
+      <h3 class="h3 service-title">{{ $t('sections.skills') }}</h3>
       <ul class="service-list">
         <ServiceItem v-for="service in services" :key="service.id" :service="service" />
+      </ul>
+    </section>
+
+    <!-- pet projects -->
+
+    <section class="service">
+      <h3 class="h3 service-title">{{ $t('sections.projects') }}</h3>
+      <ul class="service-list">
+        <ProjectItem v-for="project in projects" :key="project.id" :project="project" />
       </ul>
     </section>
   </article>
