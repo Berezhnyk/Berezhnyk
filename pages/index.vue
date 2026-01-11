@@ -20,13 +20,17 @@ if (process.dev) {
 /* Services */
 const { data: services } = await useFetch('/api/services', {
   key: 'services',
-  default: () => []
+  default: () => [],
+  // Ensure fresh data on each navigation
+  getCachedData: () => undefined
 })
 
 /* About */
 const { data: about, error: aboutError } = await useFetch('/api/about', {
   key: 'about',
   default: () => aboutData,
+  // Ensure fresh data on each navigation
+  getCachedData: () => undefined,
   // Gracefully handle API failures in production
   onResponseError({ response }) {
     console.warn('Failed to fetch about data from API, using fallback data')
