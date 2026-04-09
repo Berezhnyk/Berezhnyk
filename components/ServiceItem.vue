@@ -1,104 +1,64 @@
 <script setup>
-// Use Nuxt i18n composable
-import { Icon } from '@iconify/vue';
+import { Icon } from '@iconify/vue'
 
 const props = defineProps({
   service: Object,
 })
-
 const { locale } = useI18n()
-// Ensure locale is never undefined
 const safeLocale = computed(() => locale.value || 'en')
+const description = computed(() => {
+  const content = props.service?.description
+  if (!content) return ''
+  return content[safeLocale.value] || content.en || ''
+})
 </script>
 
 <template>
-  <li class="service-item glass-panel relative overflow-hidden">
-    <div class="service-icon-box relative z-10 glass-icon-container">
-      <NuxtImg 
-        v-if="service.image !== null && service.icon !== ''" 
-        :src="service.image" 
-        alt="mobile app icon" 
-        class="w-40"
-        width="160"
-        height="160"
+  <li class="service-item paper-card">
+    <div class="paper-card__tile service-item__tile">
+      <NuxtImg
+        v-if="service.image"
+        :src="service.image"
+        alt=""
+        class="service-item__img"
+        width="40"
+        height="40"
         loading="lazy"
         format="webp"
       />
-      <Icon v-else :icon="service.icon" class="text-ranko-500 text-[3rem] mx-auto" style="width: 40px" />
+      <Icon v-else :icon="service.icon" width="32" height="32" />
     </div>
-
-    <div class="service-content-box relative z-10">
-      <h4 class="h4 service-item-title">
-        {{ service.title }}
-      </h4>
-
-      <p class="service-item-text">
-        {{ service.description?.[safeLocale] || service.description?.en }}
-      </p>
+    <div class="service-item__body">
+      <h3 class="service-item__title">{{ service.title }}</h3>
+      <p class="service-item__desc">{{ description }}</p>
     </div>
   </li>
 </template>
 
 <style scoped>
-.glass-panel {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
+.service-item { list-style: none; }
+
+.service-item__tile {
+  margin-bottom: 1rem;
+}
+.service-item__img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
 }
 
-.glass-panel:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
-  box-shadow: 
-    0 12px 40px rgba(0, 0, 0, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+.service-item__title {
+  font-family: var(--font-serif);
+  font-size: var(--fs-lg);
+  color: var(--ink);
+  margin: 0 0 0.4rem;
+  line-height: 1.2;
 }
 
-.glass-icon-container {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 16px;
-  margin-bottom: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
-}
-
-.glass-icon-container:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.2);
-}
-
-/* Dark mode adjustments */
-.dark .glass-panel {
-  background: rgba(0, 0, 0, 0.2);
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
-.dark .glass-panel:hover {
-  background: rgba(0, 0, 0, 0.3);
-  border-color: rgba(255, 255, 255, 0.15);
-}
-
-.dark .glass-icon-container {
-  background: rgba(0, 0, 0, 0.15);
-  border-color: rgba(255, 255, 255, 0.08);
-}
-
-.dark .glass-icon-container:hover {
-  background: rgba(0, 0, 0, 0.25);
-  border-color: rgba(255, 255, 255, 0.12);
+.service-item__desc {
+  color: var(--ink-soft);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  margin: 0;
 }
 </style>

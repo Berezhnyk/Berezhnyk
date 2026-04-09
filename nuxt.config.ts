@@ -74,6 +74,7 @@ export default defineNuxtConfig({
   },
   css: [
     '/assets/css/fonts.css',
+    '/assets/css/tokens.css',
     '/assets/css/style.css',
   ],
   tailwindcss: {
@@ -85,13 +86,15 @@ export default defineNuxtConfig({
   nitro: {
     preset: 'vercel',
     prerender: {
+      crawlLinks: false,
+      failOnError: false,
       routes: [
         '/',
         '/resume',
-        '/github', 
+        '/github',
         '/apps',
         '/apps/structured-viewer-extension',
-        '/api/services', 
+        '/api/services',
         '/api/about'
       ]
     },
@@ -153,10 +156,14 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
+      htmlAttrs: {
+        lang: 'en'
+      },
       link: [
         // Preload critical fonts
         { rel: 'preload', href: '/fonts/poppins-400.woff2', as: 'font', type: 'font/woff2', crossorigin: '' },
         { rel: 'preload', href: '/fonts/poppins-500.woff2', as: 'font', type: 'font/woff2', crossorigin: '' },
+        { rel: 'preload', href: '/fonts/fraunces-variable.woff2', as: 'font', type: 'font/woff2', crossorigin: '' },
         // DNS prefetch for external resources
         { rel: 'dns-prefetch', href: '//vercel-insights.com' },
         // Preload critical images

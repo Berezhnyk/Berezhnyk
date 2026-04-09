@@ -14,6 +14,18 @@ module.exports = {
     extend: {
       colors: {
         primary: 'hsl(168deg 90% 51%)',
+        paper: {
+          50: '#fcfaf7',
+          100: '#f7f3ee',
+          200: '#ede4d8',
+          300: '#e2d5c2',
+          400: '#d6c2a9',
+          500: '#c9ae8e',
+          600: '#bca175',
+          700: '#a68a5f',
+          800: '#8f734a',
+          900: '#7a5d38',
+        },
         ranko: {
           50: '#FCE5C1',
           100: '#FBDDAD',

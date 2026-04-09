@@ -1,47 +1,50 @@
 {
-    "hello": "Ahoj",
-    "goodbye": "Na shledanou",
-    "pageTitles": {
-        "about": "O mně",
-        "resume": "Životopis",
-        "portfolio": "Portfolio",
-        "blog": "Blog",
-        "github": "GitHub"
-    },
+    "close": "Zavřít",
+    "company": "Společnost",
+    "czechia": "Česká republika",
+    "email": "E-mail",
+    "hideContacts": "Skrýt kontakty",
+    "loading": "Načítání...",
+    "present": "Současnost",
+    "readMore": "Číst více",
+    "remote": "Na dálku",
+    "showContacts": "Zobrazit kontakty",
     "contact": {
         "github": "GitHub",
         "linkedin": "LinkedIn",
         "location": "Umístění"
     },
-    "sections": {
-        "experience": "Zkušenosti",
-        "education": "Vzdělání",
-        "skills": "Dovednosti",
-        "services": "Služby",
-        "projects": "Osobní projekty"
-    },
-    "common": {
-        "remote": "Na dálku",
-        "present": "Současnost",
-        "company": "Společnost",
-        "czechia": "Česká republika",
-        "showContacts": "Zobrazit kontakty",
-        "hideContacts": "Skrýt kontakty",
-        "loading": "Načítání...",
-        "email": "E-mail",
-        "readMore": "Číst více",
-        "close": "Zavřít"
+    "goodbye": "Na shledanou",
+    "hello": "Ahoj",
+    "hero": {
+        "subtitle": "Senior Software Engineer & API Developer",
+        "welcome": "Vítejte v mém portfoliu",
+        "welcome_message": "Vítejte v mém portfoliu"
     },
     "navigation": {
-        "home": "Domů",
         "about": "O mně",
-        "resume": "Životopis",
-        "portfolio": "Portfolio",
         "blog": "Blog",
-        "contact": "Kontakt"
+        "contact": "Kontakt",
+        "home": "Domů",
+        "portfolio": "Portfolio",
+        "resume": "Životopis"
     },
-    "hero": {
-        "welcome": "Vítejte v mém portfoliu",
-        "subtitle": "Senior Software Engineer & API Developer"
+    "pageTitles": {
+        "about": "O mně",
+        "apps": "Aplikace",
+        "blog": "Blog",
+        "github": "GitHub",
+        "portfolio": "Portfolio",
+        "resume": "Životopis"
+    },
+    "sections": {
+        "education": "Vzdělání",
+        "experience": "Zkušenosti",
+        "projects": "Osobní projekty",
+        "services": "Služby",
+        "skills": "Dovednosti",
+        "welcome_message": "Vítejte v mém portfoliu",
+        "apps_description": "Kolekce digitálních nástrojů a aplikací, které jsem vytvořil.",
+        "about_intro": "Krátké představení."
     }
 }

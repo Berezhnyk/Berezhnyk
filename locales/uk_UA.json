@@ -1,47 +1,50 @@
 {
-    "hello": "Привіт",
-    "goodbye": "До побачення",
-    "pageTitles": {
-        "about": "Про мене",
-        "resume": "Резюме",
-        "portfolio": "Портфоліо",
-        "blog": "Блог",
-        "github": "GitHub"
-    },
+    "close": "Закрити",
+    "company": "Компанія",
+    "czechia": "Чехія",
+    "email": "Електронна пошта",
+    "hideContacts": "Сховати контакти",
+    "loading": "Завантаження...",
+    "present": "Теперішній час",
+    "readMore": "Читати далі",
+    "remote": "Віддалено",
+    "showContacts": "Показати контакти",
     "contact": {
         "github": "GitHub",
         "linkedin": "LinkedIn",
         "location": "Місцезнаходження"
     },
-    "sections": {
-        "experience": "Досвід",
-        "education": "Освіта",
-        "skills": "Навички",
-        "services": "Послуги",
-        "projects": "Власні проєкти"
-    },
-    "common": {
-        "remote": "Віддалено",
-        "present": "Теперішній час",
-        "company": "Компанія",
-        "czechia": "Чехія",
-        "showContacts": "Показати контакти",
-        "hideContacts": "Сховати контакти",
-        "loading": "Завантаження...",
-        "email": "Електронна пошта",
-        "readMore": "Читати далі",
-        "close": "Закрити"
+    "goodbye": "До побачення",
+    "hello": "Привіт",
+    "hero": {
+        "subtitle": "Старший розробник програмного забезпечення та API",
+        "welcome": "Ласкаво просимо до мого портфоліо",
+        "welcome_message": "Ласкаво просимо до мого портфоліо"
     },
     "navigation": {
-        "home": "Головна",
         "about": "Про мене",
-        "resume": "Резюме",
-        "portfolio": "Портфоліо",
         "blog": "Блог",
-        "contact": "Контакти"
+        "contact": "Контакти",
+        "home": "Головна",
+        "portfolio": "Портфоліо",
+        "resume": "Резюме"
     },
-    "hero": {
-        "welcome": "Ласкаво просимо до мого портфоліо",
-        "subtitle": "Старший розробник програмного забезпечення та API"
+    "pageTitles": {
+        "about": "Про мене",
+        "apps": "Додатки",
+        "blog": "Блог",
+        "github": "GitHub",
+        "portfolio": "Портфоліо",
+        "resume": "Резюме"
+    },
+    "sections": {
+        "education": "Освіта",
+        "experience": "Досвід",
+        "projects": "Власні проєкти",
+        "services": "Послуги",
+        "skills": "Навички",
+        "welcome_message": "Ласкаво просимо до мого портфоліо",
+        "apps_description": "Добірка цифрових інструментів і застосунків, які я створив.",
+        "about_intro": "Коротке знайомство."
     }
 }

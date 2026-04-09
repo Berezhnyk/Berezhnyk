@@ -12,71 +12,75 @@ onMounted(() => {
 
 <template>
   <ClientOnly>
-    <Transition name="bounce">
-      <div v-show="isClient && !cookie.getCookie" class="left-1/2 transform -translate-x-1/2 md:w-[25%] w-[90%] glass-panel bottom-5 fixed z-[100] flex items-center justify-between overflow-hidden">
-        <span class="text-[#fafafa] relative z-10">This site use cookies! 🍪</span>
-        <span class="cursor-pointer glass-close-button relative z-10" @click="cookie.setCookie()">
-          <Icon name="close-outline" :size="16" />
-        </span>
+    <Transition name="cookie-fade">
+      <div v-show="isClient && !cookie.getCookie" class="cookie-bar">
+        <span class="cookie-bar__text">This site uses cookies.</span>
+        <button
+          class="cookie-bar__close"
+          aria-label="Dismiss cookie notice"
+          @click="cookie.setCookie()"
+        >
+          <Icon name="close-outline" :size="14" />
+        </button>
       </div>
     </Transition>
   </ClientOnly>
 </template>
 
 <style scoped>
-.glass-panel {
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 16px;
-  padding: 16px 24px;
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  animation: bounce-in 0.5s ease;
-}
-
-.glass-close-button {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 8px;
-  padding: 8px;
+.cookie-bar {
+  position: fixed;
+  left: 50%;
+  bottom: 1.25rem;
+  transform: translateX(-50%);
+  z-index: 100;
+  max-width: min(90vw, 360px);
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: var(--paper-surface);
+  color: var(--ink-soft);
+  border: 1px solid var(--paper-edge);
+  border-radius: 999px;
+  box-shadow: var(--shadow-2);
+  font-size: var(--fs-xs);
+}
+
+.cookie-bar__text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cookie-bar__close {
+  background: var(--paper-surface-2);
+  border: 1px solid var(--paper-edge);
+  border-radius: 999px;
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
-  transition: all 0.2s ease;
-  color: #fafafa;
-  margin-left: 12px;
+  color: var(--ink-muted);
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  flex-shrink: 0;
+}
+.cookie-bar__close:hover {
+  color: var(--accent);
+  border-color: var(--accent-soft);
+  background: var(--paper-surface);
 }
 
-.glass-close-button:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.25);
-  transform: scale(1.05);
+.cookie-fade-enter-active,
+.cookie-fade-leave-active {
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
-
-.bounce-enter-active {
-  animation: bounce-in 0.5s;
-}
-
-.bounce-leave-active {
-  animation: bounce-in 0.5s reverse;
-}
-
-@keyframes bounce-in {
-  0% {
-    transform: scale(0);
-  }
-
-  50% {
-    transform: scale(1.25);
-  }
-
-  100% {
-    transform: scale(1);
-  }
+.cookie-fade-enter-from,
+.cookie-fade-leave-to {
+  opacity: 0;
+  transform: translate(-50%, 10px);
 }
 </style>

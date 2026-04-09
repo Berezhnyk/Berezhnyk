@@ -1,136 +1,63 @@
 <script setup>
-// Use Nuxt i18n with proper locale persistence
 const { locale, setLocale } = useI18n()
-
-// Define available locales
 const availableLocales = ['en', 'uk_UA', 'cz_CZ']
-
-// Ensure locale is properly set with fallback
 const currentLocale = computed(() => locale.value || 'en')
 
+const shortCode = computed(() => ({
+  en: 'EN',
+  uk_UA: 'UK',
+  cz_CZ: 'CZ',
+}[currentLocale.value] || 'EN'))
+
 async function changeLang() {
-  const currentIndex = availableLocales.indexOf(currentLocale.value)
-  const nextIndex = (currentIndex + 1) % availableLocales.length
-  const nextLocale = availableLocales[nextIndex]
-  
+  const idx = availableLocales.indexOf(currentLocale.value)
+  const next = availableLocales[(idx + 1) % availableLocales.length]
   try {
-    // Use Nuxt i18n's setLocale which handles cookie persistence automatically
-    await setLocale(nextLocale)
-  } catch (error) {
-    console.warn('Error switching locale:', error)
+    await setLocale(next)
+  } catch (err) {
+    console.warn('Error switching locale:', err)
   }
 }
 </script>
 
 <template>
   <ClientOnly>
-    <div class="glass-lang-switcher relative overflow-hidden cursor-pointer" @click="changeLang()">
-      <!-- Subtle background effect -->
-      <div class="absolute inset-0 glass-lang-bg opacity-30"></div>
-      
-      <NuxtImg 
-        :src="`/flags/${currentLocale}.png`" 
-        :alt="`${currentLocale} flag`"
-        class="h-6 relative z-10 transition-transform duration-300 hover:scale-110"
-        width="24"
-        height="24"
-        loading="eager"
-      />
-    </div>
+    <button
+      class="paper-lang-btn"
+      @click="changeLang"
+      :aria-label="`Switch language, current ${shortCode}`"
+    >
+      {{ shortCode }}
+    </button>
     <template #fallback>
-      <!-- Fallback with default locale -->
-      <div class="glass-lang-switcher relative overflow-hidden">
-        <div class="absolute inset-0 glass-lang-bg opacity-30"></div>
-        <NuxtImg 
-          src="/flags/en.png" 
-          alt="en flag"
-          class="h-6 relative z-10"
-          width="24"
-          height="24"
-          loading="eager"
-        />
-      </div>
+      <button class="paper-lang-btn" aria-label="Language">EN</button>
     </template>
   </ClientOnly>
 </template>
 
 <style scoped>
-.glass-lang-switcher {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 8px;
-  padding: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 
-    0 4px 16px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+.paper-lang-btn {
+  background: var(--paper-surface-2);
+  border: 1px solid var(--paper-edge);
+  border-radius: 999px;
+  height: 38px;
+  min-width: 44px;
+  padding: 0 12px;
+  font-family: var(--font-sans);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
-
-.glass-lang-switcher:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-1px) scale(1.05);
-  box-shadow: 
-    0 8px 24px rgba(0, 0, 0, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+.paper-lang-btn:hover {
+  background: var(--paper-surface);
+  border-color: var(--paper-deckle);
+  color: var(--accent);
+  transform: translateY(-1px);
 }
-
-.glass-lang-switcher:active {
-  transform: translateY(0) scale(0.98);
-}
-
-.glass-lang-bg {
-  background: linear-gradient(
-    45deg,
-    rgba(239, 68, 68, 0.3) 0%,
-    rgba(59, 130, 246, 0.3) 33%,
-    rgba(34, 197, 94, 0.3) 66%,
-    rgba(168, 85, 247, 0.3) 100%
-  );
-  background-size: 300% 300%;
-  animation: flag-gradient 8s ease-in-out infinite;
-}
-
-@keyframes flag-gradient {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  25% {
-    background-position: 50% 0%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  75% {
-    background-position: 50% 100%;
-  }
-}
-
-/* Dark mode adjustments */
-.dark .glass-lang-switcher {
-  background: rgba(0, 0, 0, 0.2);
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
-.dark .glass-lang-switcher:hover {
-  background: rgba(0, 0, 0, 0.3);
-  border-color: rgba(255, 255, 255, 0.15);
-}
-
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-  .glass-lang-switcher {
-    padding: 6px;
-  }
-  
-  img {
-    height: 20px;
-    width: auto;
-  }
+.paper-lang-btn:active {
+  transform: translateY(0);
 }
 </style>

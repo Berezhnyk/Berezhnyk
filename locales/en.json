@@ -6,7 +6,8 @@
         "resume": "Resume",
         "portfolio": "Portfolio",
         "blog": "Blog",
-        "github": "GitHub"
+        "github": "GitHub",
+        "apps": "Apps"
     },
     "contact": {
         "github": "GitHub",
@@ -18,7 +19,10 @@
         "education": "Education",
         "skills": "Skills",
         "services": "Services",
-        "projects": "Pet Projects"
+        "projects": "Pet Projects",
+        "welcome_message": "Welcome to my portfolio",
+        "apps_description": "A collection of digital tools and applications I have built.",
+        "about_intro": "A short introduction."
     },
     "common": {
         "remote": "Remote",
@@ -42,6 +46,7 @@
     },
     "hero": {
         "welcome": "Welcome to my portfolio",
-        "subtitle": "Senior Software Engineer & API Developer"
+        "subtitle": "Senior Software Engineer & API Developer",
+        "welcome_message": "Welcome to my portfolio"
     }
 }
