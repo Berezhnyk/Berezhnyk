@@ -6,6 +6,7 @@ dist
 .env
 .screenshots
 .vercel
+test-results
 
 # Package manager lock files (keeping pnpm-lock.yaml)
 package-lock.json
