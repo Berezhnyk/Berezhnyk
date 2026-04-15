@@ -34,9 +34,9 @@
     </div>
 
     <div class="letterhead__contacts" aria-label="Contacts">
-      <a href="mailto:ivan@berezhnyk.net" class="contact-chip" aria-label="Email">
+      <a href="mailto:ivan@berezhnyk.com" class="contact-chip" aria-label="Email">
         <Icon name="mail-outline" :size="14" />
-        <span>ivan@berezhnyk.net</span>
+        <span>ivan@berezhnyk.com</span>
       </a>
       <a href="https://github.com/berezhnyk" target="_blank" rel="noopener noreferrer" class="contact-chip" aria-label="GitHub">
         <Icon name="logo-github" :size="14" />
