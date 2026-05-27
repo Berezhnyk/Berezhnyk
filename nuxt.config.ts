@@ -94,6 +94,8 @@ export default defineNuxtConfig({
         '/github',
         '/apps',
         '/apps/structured-viewer-extension',
+        '/games/capybara-surf',
+        '/games/capybara-surf/support',
         '/api/services',
         '/api/about'
       ]
@@ -124,6 +126,7 @@ export default defineNuxtConfig({
       },
       '/github': { prerender: true, isr: true },
       '/apps/**': { prerender: true, isr: true },
+      '/games/**': { prerender: true, isr: true },
       // Assets - long cache
       '/images/**': { headers: { 'cache-control': 'max-age=31536000' } },
       '/fonts/**': { headers: { 'cache-control': 'max-age=31536000' } },
