@@ -1,7 +1,7 @@
 <script setup>
 import { Icon } from '@iconify/vue'
 
-const appStoreUrl = 'https://apps.apple.com/app/capybara-surf'
+const appStoreUrl = 'https://apps.apple.com/us/app/capybara-surf/id6772348238'
 const supportEmail = 'ivanberezhnyk@gmail.com'
 
 useHead({
