@@ -10,4 +10,15 @@ export const projectsData = [
     url: 'https://timetable.guide',
     icon: 'mdi:bus-clock',
   },
+  {
+    id: 1,
+    title: '.NET Secrets Explorer',
+    description: {
+      en: 'A VS Code extension to browse, add, edit, and delete .NET user secrets directly from the editor — no command line required.',
+      uk_UA: 'Розширення для VS Code, яке дозволяє переглядати, додавати, редагувати та видаляти секрети користувача .NET безпосередньо в редакторі — без командного рядка.',
+      cz_CZ: 'Rozšíření pro VS Code, které umožňuje procházet, přidávat, upravovat a mazat uživatelská tajemství .NET přímo v editoru — bez příkazové řádky.',
+    },
+    url: 'https://marketplace.visualstudio.com/items?itemName=berezhnyk.dotnet-secrets-explorer',
+    icon: 'mdi:key-variant',
+  },
 ]
