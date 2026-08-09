@@ -58,7 +58,14 @@ useSeoMeta({
 .page__body {
   margin-top: 3rem;
 }
-.page__body > * + * {
+/*
+ * Vertical rhythm between top-level blocks. Pages render a single root
+ * element inside the slot, so the rhythm has to reach one level deeper as
+ * well — otherwise sibling <section>s collapse against each other.
+ */
+.page__body > * + *,
+.page__body > * > header + section,
+.page__body > * > section + section {
   margin-top: 4rem;
 }
 
