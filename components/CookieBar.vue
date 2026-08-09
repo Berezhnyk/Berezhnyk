@@ -6,7 +6,6 @@ const isClient = ref(false)
 
 onMounted(() => {
   isClient.value = true
-  useCookieStore()
 })
 </script>
 
