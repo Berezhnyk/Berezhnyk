@@ -21,4 +21,15 @@ export const projectsData = [
     url: 'https://marketplace.visualstudio.com/items?itemName=berezhnyk.dotnet-secrets-explorer',
     icon: 'mdi:key-variant',
   },
+  {
+    id: 2,
+    title: 'Capybara Surf',
+    description: {
+      en: 'A cozy endless surf runner for iOS. Carve glassy waves, dodge driftwood, and collect coins with the calmest rodent on the ocean.',
+      uk_UA: 'Затишний нескінченний раннер про серфінг для iOS. Розсікайте склисті хвилі, оминайте корчі та збирайте монети разом із найспокійнішим гризуном океану.',
+      cz_CZ: 'Poklidná nekonečná surfařská hra pro iOS. Prořezávejte hladké vlny, vyhýbejte se naplavenému dříví a sbírejte mince s nejklidnějším hlodavcem oceánu.',
+    },
+    url: '/games/capybara-surf',
+    icon: 'mdi:surfing',
+  },
 ]

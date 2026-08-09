@@ -12,11 +12,16 @@ const description = computed(() => {
   return content[safeLocale.value] || content.en || ''
 })
 
+/* Some projects live on this site (their own landing page) rather than on an
+   external host — those stay in-tab and route through the client router. */
+const isInternal = computed(() => (props.project?.url || '').startsWith('/'))
+
 /* Human-readable form of the link — the raw href can carry a query string
    long enough to wrap over several lines and blow out the card. */
 const displayUrl = computed(() => {
   const url = props.project?.url
   if (!url) return ''
+  if (isInternal.value) return url.replace(/\/$/, '')
   try {
     const { hostname, pathname } = new URL(url)
     return `${hostname.replace(/^www\./, '')}${pathname}`.replace(/\/$/, '')
@@ -29,10 +34,10 @@ const displayUrl = computed(() => {
 
 <template>
   <li class="project-item paper-card paper-card--link">
-    <a
-      :href="project.url"
-      target="_blank"
-      rel="noopener noreferrer"
+    <NuxtLink
+      :to="project.url"
+      :target="isInternal ? undefined : '_blank'"
+      :rel="isInternal ? undefined : 'noopener noreferrer'"
       class="project-item__link"
       :aria-label="`View ${project.title}`"
     >
@@ -44,7 +49,7 @@ const displayUrl = computed(() => {
         <p class="project-item__desc">{{ description }}</p>
         <span class="project-item__url" :title="project.url">{{ displayUrl }}</span>
       </div>
-    </a>
+    </NuxtLink>
   </li>
 </template>
 
