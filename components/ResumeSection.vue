@@ -14,7 +14,7 @@ const description = computed(() => {
 </script>
 
 <template>
-  <li class="resume-item paper-card paper-card--ribbon">
+  <li class="resume-item paper-card">
     <div class="resume-item__header">
       <h3 class="resume-item__company">{{ experience.company }}</h3>
       <span class="resume-item__period">{{ experience.period }}</span>
