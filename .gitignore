@@ -8,8 +8,9 @@ dist
 .vercel
 test-results
 
-# Package manager lock files (keeping pnpm-lock.yaml)
-package-lock.json
+# Package manager lock files. package-lock.json is committed on purpose:
+# without it Vercel re-resolves every ^ range on each deploy, so prod can
+# break with no commit behind it.
 yarn.lock
 
 # Platform-specific configs (removed)
