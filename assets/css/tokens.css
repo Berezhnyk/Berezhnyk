@@ -142,10 +142,6 @@ a:hover {
   border-color: var(--accent-soft);
 }
 
-.paper-card--ribbon {
-  border-left: 3px solid var(--accent-soft);
-}
-
 .paper-card__tile {
   background: var(--paper-surface-2);
   border: 1px solid var(--paper-edge);
