@@ -72,10 +72,13 @@ export default defineNuxtConfig({
       }
     },
   },
+  // Must be `~/`-prefixed. A leading `/` means "public directory URL" to Vite,
+  // which resolves by luck rather than by rule and can silently drop the whole
+  // global stylesheet entry from the production bundle.
   css: [
-    '/assets/css/fonts.css',
-    '/assets/css/tokens.css',
-    '/assets/css/style.css',
+    '~/assets/css/fonts.css',
+    '~/assets/css/tokens.css',
+    '~/assets/css/style.css',
   ],
   tailwindcss: {
     cssPath: '~/assets/css/tailwind.css',
@@ -138,16 +141,6 @@ export default defineNuxtConfig({
     build: {
       rollupOptions: {
         external: ['fsevents'],
-        output: {
-          // Only apply manual chunks for client build
-          ...(process.env.NODE_ENV === 'production' && {
-            manualChunks: {
-              'vue-vendor': ['vue', 'vue-router'],
-              'ui-vendor': ['@iconify/vue'],
-              'i18n-vendor': ['vue-i18n'],
-            }
-          })
-        }
       }
     },
     optimizeDeps: {

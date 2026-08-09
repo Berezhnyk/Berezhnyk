@@ -11,6 +11,20 @@ const description = computed(() => {
   if (!content) return ''
   return content[safeLocale.value] || content.en || ''
 })
+
+/* Human-readable form of the link — the raw href can carry a query string
+   long enough to wrap over several lines and blow out the card. */
+const displayUrl = computed(() => {
+  const url = props.project?.url
+  if (!url) return ''
+  try {
+    const { hostname, pathname } = new URL(url)
+    return `${hostname.replace(/^www\./, '')}${pathname}`.replace(/\/$/, '')
+  }
+  catch {
+    return url
+  }
+})
 </script>
 
 <template>
@@ -28,7 +42,7 @@ const description = computed(() => {
       <div class="project-item__body">
         <h3 class="project-item__title">{{ project.title }}</h3>
         <p class="project-item__desc">{{ description }}</p>
-        <span class="project-item__url">{{ project.url }}</span>
+        <span class="project-item__url" :title="project.url">{{ displayUrl }}</span>
       </div>
     </a>
   </li>
@@ -67,10 +81,13 @@ const description = computed(() => {
 }
 
 .project-item__url {
-  display: inline-block;
+  display: block;
+  max-width: 100%;
   margin-top: 0.75rem;
   font-size: var(--fs-xs);
   color: var(--accent);
-  word-break: break-all;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 </style>

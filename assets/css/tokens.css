@@ -181,6 +181,8 @@ a:hover {
 
 .paper-prose p + p { margin-top: 1em; }
 .paper-prose h2 { margin-top: 2em; margin-bottom: 0.75em; }
+/* .section-heading owns its own spacing — don't stack prose margins on top. */
+.paper-prose .section-heading h2 { margin-top: 0; margin-bottom: 0; }
 .paper-prose h3 { margin-top: 1.5em; margin-bottom: 0.5em; }
 .paper-prose ul { padding-left: 1.25em; margin: 1em 0; }
 .paper-prose li { margin: 0.35em 0; color: var(--ink-soft); }
