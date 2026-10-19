@@ -37,8 +37,8 @@ export const projectsData = [
     title: 'Klymbak',
     description: {
       en: 'An open-source AI agent package for admin panels. Your team asks in a chat instead of clicking through screens, and the agent works through your own APIs, asking for approval before it changes anything.',
-      uk_UA: 'Пакет ШІ-агента з відкритим кодом для адмін-панелей. Команда просить у чаті замість того, щоб клацати екранами, а агент працює через ваші власні API і просить погодження, перш ніж щось змінити.',
-      cz_CZ: 'Open-source balíček AI agenta pro administrační panely. Tým zadává požadavky v chatu místo proklikávání obrazovek a agent pracuje přes vaše vlastní API a před každou změnou žádá o schválení.',
+      uk_UA: 'ШІ-агент з відкритим кодом для адмін-панелей. Замість того щоб клацати по екранах, команда просто пише в чат, а агент виконує завдання через ваші API і перед будь-якими змінами просить підтвердження.',
+      cz_CZ: 'Open-source AI agent pro administrační rozhraní. Místo proklikávání obrazovek tým jednoduše napíše do chatu a agent úkol vyřídí přes vaše API. Než cokoli změní, požádá o schválení.',
     },
     url: 'https://klymbak.ai',
     icon: 'mdi:robot-outline',
