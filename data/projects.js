@@ -32,4 +32,15 @@ export const projectsData = [
     url: '/games/capybara-surf',
     icon: 'mdi:surfing',
   },
+  {
+    id: 3,
+    title: 'Klymbak AI',
+    description: {
+      en: 'An AI agent package for admin panels. Teams ask for routine tasks in plain language, and the agent does them through your existing APIs, with approvals and an audit trail.',
+      uk_UA: 'Пакет ШІ-агента для адмін-панелей. Команди описують рутинні завдання звичайною мовою, а агент виконує їх через ваші наявні API, із погодженнями та журналом аудиту.',
+      cz_CZ: 'Balíček AI agenta pro administrační panely. Týmy zadávají rutinní úkoly běžným jazykem a agent je provádí přes vaše stávající API, se schvalováním a auditní stopou.',
+    },
+    url: 'https://klymbak.ai',
+    icon: 'mdi:robot-outline',
+  },
 ]
